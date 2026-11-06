@@ -50,6 +50,4 @@ void fly_sweep(Object *obj) {
     obj->vx = dz;
     obj->vz = dx;
 }
-#else
-INCLUDE_ASM(STAGE_ASM, fly_sweep);
 #endif

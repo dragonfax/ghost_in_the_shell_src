@@ -10,17 +10,12 @@ void debug_nop_a(void) {
 #if STAGE == 6
 void debug_nop_a(void) {
 }
-/* hand-written: `j stage_main` with no frame, GCC 2.7.2 never emits a sibling call (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
-/* Entry thunk: tail-jumps to stage_main with the caller's arguments and return address. C companion of
-   hand-written asm (not compiled): `j stage_main` has no frame; GCC 2.7.2 never emits a sibling call. */
+/* hand-written: `j stage_main` with no frame, GCC 2.7.2 never emits a sibling call */
+/* Entry thunk: tail-jumps to stage_main with the caller's arguments and return address. The original is hand-written asm: `j stage_main` has no frame; GCC 2.7.2 never emits a sibling call. */
 extern void stage_main(void);
 void stage_main_thunk(void) {
     stage_main();
 }
-#else
-INCLUDE_ASM("../src/s06/asm", stage_main_thunk);
-#endif
 #endif
 
 s32 debug_check_a(void) {

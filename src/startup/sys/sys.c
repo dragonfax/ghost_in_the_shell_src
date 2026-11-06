@@ -3,18 +3,12 @@
 /* sys.c's RCS id. */
 static const char sys_c_rcsid[] = "$Id: sys.c,v 1.126 1996/09/13 06:29:54 noda Exp $";
 
-INCLUDE_ASM("../asm/startup/nonmatchings/main", func_800E8718);
-
-#ifdef NON_MATCHING
-/* Returns the data word at func_800E8718. C companion of hand-written asm (not compiled): the word's address is built in $at (lui/addiu), then lw into $v0. */
+/* Returns the data word at func_800E8718. The original is hand-written asm: the word's address is built in $at (lui/addiu), then lw into $v0. */
 extern u32 func_800E8718;
 
 u32 func_800E871C(void) {
     return func_800E8718;
 }
-#else
-INCLUDE_ASM("../src/startup/asm", func_800E871C);
-#endif
 
 /* Reads the big-endian 32-bit offset stored at entry `index` of the table
  * at `base` (4 bytes per entry) and returns the address it points to. */
@@ -37,16 +31,11 @@ s32 offset_table_entry(u8 *base, s32 index) {
     return (s32)base + offset;
 }
 
-/* hand-written: PsyQ libgpu GetTPage bit layout computed in $at (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
-/* PsyQ GetTPage: texture page id from page mode tp, blend abr and VRAM position (x, y). C companion of
-   hand-written asm (not compiled): the asm builds each field in $at with no temporaries. */
+/* hand-written: PsyQ libgpu GetTPage bit layout computed in $at */
+/* PsyQ GetTPage: texture page id from page mode tp, blend abr and VRAM position (x, y). The original is hand-written asm: the asm builds each field in $at with no temporaries. */
 u16 func_800E8760(s32 tp, s32 abr, s32 x, s32 y) {
     return ((tp << 7) & 0x180) | ((abr << 5) & 0x60) | ((y & 0x100) >> 4) | ((x & 0x3C0) >> 6);
 }
-#else
-INCLUDE_ASM("../src/startup/asm", func_800E8760);
-#endif
 
 /* Sets the semi-transparency (STP) bit on a 256-entry 16-bit palette.
  * Entry 0 and any entry with color bits zero are cleared to bit 15 off;

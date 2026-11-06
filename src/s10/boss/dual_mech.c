@@ -76,7 +76,6 @@ void player_warp_to_point(void) {
     player_warp_request(&pos, (UnalignedVec *)rot, 0);
 }
 
-
 s32 player_turn_to_yaw(s32 target_yaw) {
     s32 diff;
     s32 turn;
@@ -107,7 +106,6 @@ s32 player_turn_to_yaw(s32 target_yaw) {
     add_turn(turn);
     return 0;
 }
-
 
 extern s32 stage_end_zone_min_x, stage_end_zone_max_x, stage_end_zone_min_y, stage_end_zone_max_y, stage_end_zone_min_z, stage_end_zone_max_z;
 extern s32 door_trigger_min_x, door_trigger_max_x, door_trigger_min_y, door_trigger_max_y, door_trigger_min_z, door_trigger_max_z;
@@ -708,7 +706,6 @@ void obj_script_read_value(Object *obj) {
     }
 }
 
-
 /* Reads a (kind, index) pair from the object's script cursor (unk_1C.unk_04). When the Object at 0x25C
    is set and its sound_pair_count count equals kind, the cursor jumps to the table entry at index. */
 void script_jump_if_partner_kind(Object *obj) {
@@ -1238,17 +1235,8 @@ void slot_records_clear(void) {
     } while (offset >= 0);
 }
 
-/* Originally C, kept as asm: we can't reproduce it with the compilers we have. It is a short slot-claim loop (the
- * first free of two records in D_801253C4) and our C matches every instruction but one: the original starts the
- * counter as a copy of the zeroed return value (`addu a2,v1,zero`), where cc1 2.7.2 -O2 always writes a plain
- * zero (its second cse pass folds the copy). The draft matches byte for byte with -fno-rerun-cse-after-loop, but
- * the rest of this file needs that pass, so the original was likely built with other settings for this code.
- * FINDINGS "A copy of a known zero"; draft: agent_logs/sessions/c392c_func_800C392C_v22.c. */
-#ifdef NON_MATCHING
 /* Claims the first free of the two records of D_801253C4 (first word 0): marks it used, clears two more words and
- * returns it, or NULL when both are taken. C companion of an asm function whose C matches byte for byte only with
- * -fno-rerun-cse-after-loop (draft v22, agent_logs/sessions/c392c_func_800C392C_v22.c); the original starts the
- * counter as a copy of the zeroed return value, which has no C form. Not compiled. */
+ * returns it, or NULL when both are taken. */
 typedef struct Slot801253C4 {
     s32 w[0x83];
 } Slot801253C4;
@@ -1269,6 +1257,3 @@ s32 *ribbon_slot_claim(void) {
     }
     return (s32 *)slot;
 }
-#else
-INCLUDE_ASM("../src/s10/asm", ribbon_slot_claim);
-#endif

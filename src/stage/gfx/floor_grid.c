@@ -2,10 +2,9 @@
 
 #include "stage.h"
 
-#ifdef NON_MATCHING
 /* Fills the 21x21 grid (step 0x800 over -0x5000..0x5000 in x and z, y = 0) of a flat surface with textured quads:
  * keeps two rows of projected FloorVerts in the scratchpad and hands every cell between them to floor_quad_draw.
- * Returns the packet pointer after the quads. C companion of hand-written asm (not compiled): the caller's GTE and
+ * Returns the packet pointer after the quads. The original is hand-written asm: the caller's GTE and
  * HI/LO state is the input (LO = the cell size scale, HI = the clip bounds, VXY1/VXY2/RGB = tpage word, OT
  * base and colour), so it is a parameter block here; the asm also falls straight into floor_quad_draw with $ra set by
  * hand to the loop's continuation (fn_800D5A8C), and keeps $fp and $gp (the scratchpad stack) as its own. */
@@ -79,18 +78,14 @@ void *floor_grid_draw(void *packet) {
     scratch_top -= 2 * 21 * sizeof(FloorVert);
     return ctx.packet;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", floor_grid_draw);
-#endif
 
-/* hand-written: subroutine saving $ra through $gp, entered by fall-through from floor_grid_draw (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: subroutine saving $ra through $gp, entered by fall-through from floor_grid_draw */
 /* Draws one cell of the grid (corners tl, tr, bl, br, side `size`) as a textured quad, or splits it in four.
  * Culled when all four corners share a clip flag; a cell larger than 0x100 is split when a corner is nearer than
  * its size. Otherwise one POLY_FT4 is built (depth-cued colour, clut from the corners' summed depth cue, uv from
  * the corners' grid position, scaled down by the leading zeros of the cell's size) and sorted into one of the
  * context's OT slots; far cells (cue sum >= 0x4000) are dropped. A split projects the 5 edge midpoints, fixes the
- * 4 edge ones with fn_800D5380 and recurses on the four quarters. C companion of hand-written asm (not compiled):
+ * 4 edge ones with fn_800D5380 and recurses on the four quarters. The original is hand-written asm:
  * the corners arrive in $t8/$s0/$t9/$t6, the size in $t7, the packet in $t3 (carried through the recursion
  * unchanged by the callee), the recursion saves $ra on the scratchpad stack ($gp) instead of the stack, and it is
  * entered by fall-through from floor_grid_draw with $ra pointing into its own tail. */
@@ -175,9 +170,6 @@ void floor_quad_draw(GridCtx *ctx, s32 size, FloorVert *tl, FloorVert *tr, Floor
     slot += ((u >> 6) << 1) + (v >> 6);
     addPrim(&ctx->ot[slot], prim);
 }
-#else
-INCLUDE_ASM("../src/stage/asm", floor_quad_draw);
-#endif
 
 /* A GTE-drawn pass for the current view, shadow_pass_draw's sibling: when d_80120008 and img_upload_active are set and
  * the camera's height is within +-0x3FFF, loads the GTE screen state (H 0x40, the light environment's depth cue

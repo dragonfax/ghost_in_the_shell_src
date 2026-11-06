@@ -118,11 +118,10 @@ void clock_step(void) {
     anim_clock += anim_clock_rate;
 }
 
-/* hand-written: works in $at as an ordinary register (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: works in $at as an ordinary register */
 /* Crack fixer for the quad subdivision: if the triangle (a, b, mid) is front-facing (nclip < 0) and a, b are
  * both farther than `size`, moves the new edge midpoint `mid` one pixel sideways, perpendicular to a-b.
- * C companion of hand-written asm (not compiled): it uses $at as a general register. */
+ * The original is hand-written asm: it uses $at as a general register. */
 typedef struct GridVert {
     s16 gz; /* grid coordinates, as fed to the GTE (VZ0, VXY0) */
     s16 gx;
@@ -153,19 +152,15 @@ void grid_crack_fix(s32 size, GridVert *a, GridVert *b, GridVert *mid) {
         mid->sx += (a->sy < b->sy) ? -1 : 1;
     }
 }
-#else
-INCLUDE_ASM("../src/stage/asm", grid_crack_fix);
-#endif
 
-/* hand-written: sets $ra by hand and falls into grid_quad_draw (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: sets $ra by hand and falls into grid_quad_draw */
 /* Draws the 8x8-cell ground mesh into the packet buffer `packet` and returns the new packet pointer. Rows of
  * 9 vertices (spacing 0x800, range -0x2000..0x2000) are projected with the GTE one row at a time into two
  * alternating buffers on the scratchpad stack ($gp); each cell between the previous and the current row goes
  * to the recursive quad drawer grid_quad_draw. Depth cue (IR0) and clip bits go into GridVert.flags. Inputs the
  * caller leaves in registers: LO = the cell size, HI = the screen limits (high half y, low half x). GTE VZ1
  * is set here to the texture scroll (anim_clock >> 4) and read back by the drawer.
- * C companion of hand-written asm (not compiled): the asm sets $ra to the label fn_800CB174 (an alias inside
+ * The original is hand-written asm: the asm sets $ra to the label fn_800CB174 (an alias inside
  * its own body) and falls into grid_quad_draw, which returns there; that is a plain call below. */
 void grid_quad_draw(GridVert *a, GridVert *b, GridVert *c, GridVert *d, s32 size, u8 **packet);
 void *grid_mesh_draw(u8 *packet) {
@@ -224,12 +219,8 @@ void *grid_mesh_draw(u8 *packet) {
     scratch_top -= 2 * 9 * sizeof(GridVert);
     return packet;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", grid_mesh_draw);
-#endif
 
-/* hand-written: subroutine saving $ra through $gp, entered by fall-through from grid_mesh_draw (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: subroutine saving $ra through $gp, entered by fall-through from grid_mesh_draw */
 /* Draws one ground-mesh quad (corners a, b in one grid row, c, d in the next; `size` = the cell size from LO;
  * `*packet` = the cursor, $t3; GTE VXY1 holds a constant tpage word, RGB the base color) or splits it in four
  * and recurses. Culled if all four corners are outside the same screen edge. Split if the cell is bigger than
@@ -237,7 +228,7 @@ INCLUDE_ASM("../src/stage/asm", grid_mesh_draw);
  * projected and the crack fixer grid_crack_fix runs on the edges. Otherwise it fills a textured quad whose color
  * is the depth cue (dpcs) and whose UVs come from the grid coordinates, and sorts it into one of the 8
  * ordering-table buckets of the caller's table (VXY2 = its address) by detail level and texture quadrant.
- * C companion of hand-written asm (not compiled): its arguments and the cursor live in $t3, $t6..$t9, $s0 across
+ * The original is hand-written asm: its arguments and the cursor live in $t3, $t6..$t9, $s0 across
  * the recursion, $ra is saved through $gp, and it is also entered by fall-through from grid_mesh_draw. */
 typedef struct GridQuad {
     u32 tag;
@@ -344,9 +335,6 @@ void grid_quad_draw(GridVert *a, GridVert *b, GridVert *c, GridVert *d, s32 size
     addPrim(tags + bucket, p);
     *packet = (u8 *)(p + 1);
 }
-#else
-INCLUDE_ASM("../src/stage/asm", grid_quad_draw);
-#endif
 
 /* Sets the four corners of a flat quad: x = -0x3FFF for corners 1 and 2, +0x3FFF for 0 and 3, height y, depth
  * z0 for corners 0 and 1 and z1 for corners 2 and 3. The stores are in the original's order. */
@@ -603,15 +591,11 @@ void shadow_pass_draw(WorkArea *wa, u32 *ot) {
 }
 
 /* Hand-written: calls shadow_pass_draw on the scratchpad stack (FINDINGS \"$sp in C\"). */
-#ifdef NON_MATCHING
 /* Calls shadow_pass_draw(wa, ot) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void shadow_pass_draw_scratch(WorkArea *wa, u32 *ot) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     shadow_pass_draw(wa, ot);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", shadow_pass_draw_scratch);
-#endif

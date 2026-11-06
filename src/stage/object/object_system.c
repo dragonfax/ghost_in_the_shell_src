@@ -244,18 +244,14 @@ void set_collide_mode(s16 value) {
     collide_mode = value;
 }
 
-#ifdef NON_MATCHING
 /* Calls solid_setup(index, shape, a, b) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void solid_setup_scratch(u32 index, SolidShape *shape, s32 a, s32 b) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     solid_setup(index, shape, a, b);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", solid_setup_scratch);
-#endif
 
 /* Sets up solid `index` from `shape`: every one of its 32 boxes starts as the shape's size (box_b zero),
  * and the bit for the new solid (solid_count) is set in the grid cells its extent covers on each axis.
@@ -1026,18 +1022,14 @@ void collide_solid_point(Collider *c, s32 *pos) {
     }
 }
 
-#ifdef NON_MATCHING
 /* Calls collide_solid_point(c, pos) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void collide_solid_point_scratch(Collider *c, s32 *pos) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     collide_solid_point(c, pos);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", collide_solid_point_scratch);
-#endif
 
 static inline s32 span_hit(s32 r, s32 d) {
     return (u32)(d + r) <= (u32)(r * 2);
@@ -1550,9 +1542,8 @@ s32 node_tree_eval(s32 node) {
     return result;
 }
 
-#ifdef NON_MATCHING
 /* Calls solid_parts_update(solid, parent) on the scratchpad stack and returns its result: the old $sp is saved
- * there and restored after. C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at
+ * there and restored after. The original is hand-written asm: the asm keeps the old $sp in $at
  * and sets up the frame by hand (FINDINGS "$sp in C"). */
 s32 solid_parts_update_scratch(Solid *solid, s32 *parent) {
     s32 result;
@@ -1561,9 +1552,6 @@ s32 solid_parts_update_scratch(Solid *solid, s32 *parent) {
     SCRATCH_STACK_LEAVE_BELOW();
     return result;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", solid_parts_update_scratch);
-#endif
 
 static inline void rotate_svectors(SVECTOR *dst, SVECTOR *src, s32 count) {
     SVECTOR *end;
@@ -2752,7 +2740,6 @@ typedef struct BlockAsset {
     s32 unk_00;
     s32 unk_04; /* added to the height base */
 } BlockAsset;
-
 
 /* Copies the object's rotation into its block (pitch negated), picks the
  * block's height between the type's two levels (offset by base plus the

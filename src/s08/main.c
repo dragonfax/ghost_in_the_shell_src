@@ -1,6 +1,5 @@
 #include "common.h"
 #define STAGE 8
-#define STAGE_ASM "../asm/s08/nonmatchings/main"
 #include "stage.h"
 #include "s08_types.h"
 #include "sounds.h"
@@ -246,9 +245,6 @@ void obj_noop_update(void) {
 
 #include "../stage/eng_fn_800c5bbc.c"
 
-#include "../stage/lib/libc/printf.c"
-#include "../stage/lib/libgte/square_root0.c"
-
 #include "../stage/sys/arena.c"
 #include "../stage/gfx/frame.c"
 #include "../stage/sys/lz.c"
@@ -257,10 +253,6 @@ void obj_noop_update(void) {
 
 #include "../stage/math/rand_init.c"
 #include "../stage/math/math.c"
-
-#include "../stage/lib/libgte/vector_normal.c"
-#include "../stage/math/gte_helper.c"
-#include "../stage/lib/libgte/matrix_normal.c"
 
 #include "../stage/sys/pad_input.c"
 
@@ -330,7 +322,6 @@ void obj_noop_update(void) {
 #include "../stage/camera/lock_on.c"
 #include "../stage/combat/shots_fx.c"
 #include "../stage/sound/sound.c"
-#include "../stage/lib/libgte/gte_misc.c"
 #include "../stage/combat/particles.c"
 #include "../stage/world/wall_query.c"
 #include "../stage/player/player_flags.c"

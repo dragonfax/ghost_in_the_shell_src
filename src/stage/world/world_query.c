@@ -1989,14 +1989,9 @@ void player_ground_clip(PlayerObj *player, s16 *stream, PlayerBox *box) {
     player->move[1] = y << 12;
 }
 
-/* Originally C, kept as asm: our agents (Opus twice, Fable once) couldn't get a match in time; the best draft is
- * 85.1% similar (agent_logs/sessions/opus_fn_800DE2AC.c). */
-#ifdef NON_MATCHING
 /* Per-frame player move: splits the 20.12 position into whole units plus a kept fraction, caps the vertical move at
  * the floor (stage_offset_x), clips the move against walls in z, then x, and against the ground through the
- * player_*_clip routines using a scratch box around the player, then applies the move and publishes the position.
- * C companion of an asm function our C only reached 85.1% on (agent_logs/sessions/opus_fn_800DE2AC.c; block-0
- * registers differ); not compiled. */
+ * player_*_clip routines using a scratch box around the player, then applies the move and publishes the position. */
 void player_move_step(PlayerObj *p, void *packet) {
     s32 x, y, z;
     s32 dx, dy, dz;
@@ -2085,9 +2080,6 @@ void player_move_step(PlayerObj *p, void *packet) {
     p->unk_70 = ez;
     *(VECTOR *)p->pos = *(VECTOR *)p->sub;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", player_move_step);
-#endif
 
 s32 *xform_fixed_point(s32 *in, s32 *out) {
     s32 x = in[0];
@@ -4780,18 +4772,14 @@ void player_step_move(PlayerObj *p) {
     player_clamp_pos(p);
 }
 
-#ifdef NON_MATCHING
 /* Calls player_step_move(p) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void player_step_move_scratch(PlayerObj *p) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     player_step_move(p);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", player_step_move_scratch);
-#endif
 
 void player_refresh_state(PlayerObj *p) {
     s32 cell;
@@ -4828,15 +4816,11 @@ void player_refresh_state(PlayerObj *p) {
     player_gte_store_pose(p);
 }
 
-#ifdef NON_MATCHING
 /* Calls player_refresh_state(p) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void player_refresh_state_scratch(PlayerObj *p, ...) { /* one caller passes a second word the asm ignores */
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     player_refresh_state(p);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", player_refresh_state_scratch);
-#endif

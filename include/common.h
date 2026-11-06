@@ -177,7 +177,6 @@ typedef struct ResourceEntry {
     u8 *path;
 } ResourceEntry;
 
-#include "include_asm.h"
 #include "gte.h" /* GTE macros for every binary (only macros) */
 #include "mips.h" /* CPU instruction idioms (only macros) */
 #include "incbin.h" /* INCBIN: data objects from asset files */

@@ -2,9 +2,6 @@
 
 #include "stage.h"
 
-INCLUDE_ASM(STAGE_ASM, heap_base);
-
-#ifdef NON_MATCHING
 /* Bit/byte reader state of the stage record decompressor. The asm keeps it in registers shared by both
    functions: $t8 src, $t7 word, $t6 bytes_left, $t0 bits, $t1 mark. */
 typedef struct {
@@ -15,17 +12,13 @@ typedef struct {
     u32 mark;        /* value of bits when the current byte's 8 bits are used up */
 } LzStream;
 
-/* Loads the next input word. C companion of hand-written asm (not compiled): the asm has no arguments, it
+/* Loads the next input word. The original is hand-written asm: the asm has no arguments, it
    works on $t6/$t7/$t8 and is entered with bltzal from lz_decompress (so $ra is the caller's). */
 void lz_refill_word(LzStream *s) {
     s->bytes_left = 2;
     s->word = *s->src++;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", lz_refill_word);
-#endif
 
-#ifdef NON_MATCHING
 static u32 lz_byte(LzStream *s) {
     s->word >>= 8;
     if (s->bytes_left < 0) {
@@ -50,7 +43,7 @@ static u32 lz_bit(LzStream *s) {
    returns the number of bytes written. A 0 bit copies a literal byte; a 1 bit starts a match: the next bit
    picks a short offset (one byte, 0 ends the stream) or a long one (a byte plus 4 bits, +255 further back),
    then an Elias-gamma style length, then the copy from dest + offset (offset < 0). Some callers pass a third
-   argument (a mask); it is not used, hence the "...". C companion of hand-written asm (not compiled): the asm keeps the reader
+   argument (a mask); it is not used, hence the "...". The original is hand-written asm: the asm keeps the reader
    state in registers and refills it by calling lz_refill_word with bltzal, and uses trapping add/sub. */
 s32 lz_decompress(u32 *src, u8 *dest, ...) {
     LzStream s;
@@ -101,6 +94,3 @@ s32 lz_decompress(u32 *src, u8 *dest, ...) {
     }
     return out - dest;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", lz_decompress);
-#endif

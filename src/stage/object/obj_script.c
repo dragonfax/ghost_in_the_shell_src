@@ -47,8 +47,6 @@ u16 obj_script_read_u16(Object *obj) {
     obj->vars.h.unk_248 = value;
     return value;
 }
-#else
-INCLUDE_ASM(STAGE_ASM, obj_script_read_u16);
 #endif
 
 void obj_script_set_fly_mode(Object *obj) {

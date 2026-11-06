@@ -179,6 +179,3 @@ void mover_to_vec3(Vec3 *src, Vec3 *dst) {
     dst->z = -src->z;
 }
 
-#if STAGE == 1
-INCLUDE_ASM(STAGE_ASM, area);
-#endif

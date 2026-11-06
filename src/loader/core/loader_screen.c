@@ -1151,27 +1151,17 @@ s32 loader_get_status(void) {
     return *(s32 *)((u8 *)slot_shared_state() + 0xD0);
 }
 
-INCLUDE_ASM("../asm/loader/nonmatchings/main", func_800E2AE4);
-
-#ifdef NON_MATCHING
-/* Returns the data word at func_800E2AE4. C companion of hand-written asm (not compiled): the word's address is built in $at (lui/addiu), then lw into $v0. */
+/* Returns the data word at func_800E2AE4. The original is hand-written asm: the word's address is built in $at (lui/addiu), then lw into $v0. */
 extern u32 func_800E2AE4;
 
 u32 func_800E2AE8(void) {
     return func_800E2AE4;
 }
-#else
-INCLUDE_ASM("../src/loader/asm", func_800E2AE8);
-#endif
 
-#ifdef NON_MATCHING
-/* Texture page id from page mode tp, blend abr and VRAM position (x, y). C companion of hand-written asm (not compiled): the asm builds each field in $at with no temporaries. */
+/* Texture page id from page mode tp, blend abr and VRAM position (x, y). The original is hand-written asm: the asm builds each field in $at with no temporaries. */
 u16 func_800E2AFC(s32 tp, s32 abr, s32 x, s32 y) {
     return ((tp << 7) & 0x180) | ((abr << 5) & 0x60) | ((y & 0x100) >> 4) | ((x & 0x3C0) >> 6);
 }
-#else
-INCLUDE_ASM("../src/loader/asm", func_800E2AFC);
-#endif
 
 extern s32 sprite_set_next;
 extern s32 loaded_image_count;
@@ -1997,8 +1987,7 @@ void screen_reset(void) {
     loader_clear_tables();
 }
 
-/* hand-written: RTPT primitive routine whose tail loader_prim_projected_wide/loader_prim_translated share (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: RTPT primitive routine whose tail loader_prim_projected_wide/loader_prim_translated share */
 /* LoaderSpriteSet: data = u32 n_tri; n_tri * 3 vertex words (s16 x, s16 y); u32 n_quad; n_quad * 3 words
    (4 vertex indices, flip bits << 14 in the halfword at +4, v | u << 8 | tpage << 16); count = blocks. */
 typedef enum { SPRITE_PROJECT, SPRITE_TRANSLATE } SpriteVertexMode;
@@ -2076,41 +2065,27 @@ static u8 *loader_sprite_prims(s32 set, s16 *pos, u32 *ot, u8 *prim, u16 clut, s
     *ot = (*ot & 0xFF000000) | link;
     return prim;
 }
-#endif
 
-#ifdef NON_MATCHING
-/* Sprite-set quad builder, GTE-projected vertices, 8x8 UV span. C companion of hand-written asm (not compiled):
+/* Sprite-set quad builder, GTE-projected vertices, 8x8 UV span. The original is hand-written asm:
    uses $at/$t0-$t9 as storage and the CP2 pipeline (next RTPT's inputs loaded inside the loop); the other
    two builders copy its prologue and loop, and their empty-set exit jumps into this one's epilogue. */
 s32 loader_prim_projected(s32 set, s16 *pos, s16 *ot, s32 prim, u16 clut, s32 semi_trans) {
     return (s32)loader_sprite_prims(set, pos, (u32 *)ot, (u8 *)prim, clut, semi_trans, SPRITE_PROJECT, 7, 0);
 }
-#else
-INCLUDE_ASM("../src/loader/asm", loader_prim_projected);
-#endif
 
-/* hand-written: branches into loader_prim_projected's tail (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
-/* Same as loader_prim_projected with UVs one texel wider (u + 8, flipped u - 1). C companion of hand-written asm (not
-   compiled): a copy of loader_prim_projected whose empty-set exit branches into loader_prim_projected's epilogue. */
+/* hand-written: branches into loader_prim_projected's tail */
+/* Same as loader_prim_projected with UVs one texel wider (u + 8, flipped u - 1). The original is hand-written asm: a copy of loader_prim_projected whose empty-set exit branches into loader_prim_projected's epilogue. */
 s32 loader_prim_projected_wide(s32 set, s16 *pos, s16 *ot, s32 prim, u16 clut, s32 semi_trans) {
     return (s32)loader_sprite_prims(set, pos, (u32 *)ot, (u8 *)prim, clut, semi_trans, SPRITE_PROJECT, 8, -1);
 }
-#else
-INCLUDE_ASM("../src/loader/asm", loader_prim_projected_wide);
-#endif
 
-/* hand-written: branches into loader_prim_projected's tail (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: branches into loader_prim_projected's tail */
 /* Same quad builder with plain 2D vertices: each vertex word is moved by pos instead of GTE-projected (UV span
-   as loader_prim_projected_wide). C companion of hand-written asm (not compiled): reads pos into $t2/$t3 as GTE OFX/OFY
+   as loader_prim_projected_wide). The original is hand-written asm: reads pos into $t2/$t3 as GTE OFX/OFY
    and adds in registers; its empty-set exit branches into loader_prim_projected's epilogue. */
 s32 loader_prim_translated(s32 set, s32 pos, s32 ot, s32 prim, s32 clut, s32 semi_trans) {
     return (s32)loader_sprite_prims(set, (s16 *)pos, (u32 *)ot, (u8 *)prim, (u16)clut, semi_trans, SPRITE_TRANSLATE, 8, -1);
 }
-#else
-INCLUDE_ASM("../src/loader/asm", loader_prim_translated);
-#endif
 
 extern s32 D_8019468C;
 extern s16 D_8019466E;

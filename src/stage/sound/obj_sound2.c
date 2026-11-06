@@ -26,8 +26,6 @@ void obj_snd2_loop_start(Object *obj) {
         sound_attach(handle, obj, (void (*)())sound_follow_obj);
     }
 }
-#else
-INCLUDE_ASM(STAGE_ASM, obj_snd2_loop_start);
 #endif
 
 /* Stops the sound handle at 0x268 if one is playing. */

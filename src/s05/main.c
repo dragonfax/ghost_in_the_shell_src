@@ -1,6 +1,5 @@
 #include "common.h"
 #define STAGE 5
-#define STAGE_ASM "../asm/s05/nonmatchings/main"
 #include "stage.h"
 #include "s05_types.h"
 #include "sounds.h"
@@ -731,16 +730,10 @@ void hud_frame_draw();
 #include "boss/camouflaged_target.c"
 #include "../stage/object/copy_slots.c"
 
-#include "../stage/lib/libc/printf.c"
-#include "../stage/lib/libgte/square_root0.c"
 #include "../stage/sys/lz.c"
 
 #include "../stage/math/rand_init.c"
 #include "../stage/math/math.c"
-
-#include "../stage/lib/libgte/vector_normal.c"
-#include "../stage/math/gte_helper.c"
-#include "../stage/lib/libgte/matrix_normal.c"
 
 #include "../stage/sys/pad_input.c"
 
@@ -815,7 +808,6 @@ void hud_frame_draw();
 #include "../stage/camera/lock_on.c"
 #include "../stage/combat/shots_fx.c"
 #include "../stage/sound/sound.c"
-#include "../stage/lib/libgte/gte_misc.c"
 #include "../stage/combat/particles.c"
 #include "../stage/world/wall_query.c"
 #include "../stage/player/player_flags.c"

@@ -1423,16 +1423,10 @@ u32 step_threshold_crossed(s32 base, s32 mode) {
     return (u32) ~sum >> 31;
 }
 
-/* Originally C, kept as asm: our agents (Opus twice, Fable once) couldn't get a match in time. Fable's draft has all
- * 126 body instructions identical (registers, order, spill slots); the original's frame is 8 bytes larger, likely an
- * unused reload spill slot. Draft and analysis: agent_logs/sessions/fable_fn_800F00E0.c, build/agent_work/out93183. */
-#ifdef NON_MATCHING
 /* Footstep check for the four tracked body parts: builds the pose list of sequence seq, and for each part whose
  * height change against the previous pose crosses the step threshold (step_threshold_crossed on the old flag) starts a sound
  * (0x2008, 0x2009 for mode 1) and for mode 1 also two fade-list effects at the part's position rotated by angle.
- * Meter at or over 0x400: flag_words_set_one; no pose data yet: flag_words_clear.
- * C companion of an asm function our C matches in all 126 body instructions, with a frame 8 bytes short (the
- * original likely has an unused reload spill slot; agent_logs/sessions/fable_fn_800F00E0.c); not compiled. */
+ * Meter at or over 0x400: flag_words_set_one; no pose data yet: flag_words_clear. */
 extern s32 footstep_part_flags[4];
 extern s32 d_8011DDE8[4];
 
@@ -1494,9 +1488,6 @@ void player_footstep_check(s32 x, s32 y, s32 z, s32 angle, s32 unused0, s32 unus
     }
     scratch_top -= 0x18;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", player_footstep_check);
-#endif
 
 s32 pchr_attach_seq(s32 model, s32 size) {
     SVECTOR *pos = scratch_alloc(8);

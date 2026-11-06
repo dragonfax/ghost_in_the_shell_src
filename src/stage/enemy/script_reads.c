@@ -113,7 +113,5 @@ void obj_destroy_loop_sound(Object *obj) {
         *handle = 0;
     }
 }
-#else
-INCLUDE_ASM(STAGE_ASM, obj_destroy_loop_sound);
 #endif
 #endif

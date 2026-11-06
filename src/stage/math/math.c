@@ -135,7 +135,6 @@ s32 length_sq(s32 x, s32 y, s32 z) {
     return x + y + z;
 }
 
-#ifdef NON_MATCHING
 /* Turns `from` towards `to` by at most `step`, the short way round. */
 s32 angle_approach(s32 from, s32 to, s32 step) {
     s32 diff;
@@ -157,28 +156,6 @@ s32 angle_approach(s32 from, s32 to, s32 step) {
     }
     return (diff + from) & 0xFFF;
 }
-#else
-s32 angle_approach(s32 from, s32 to, s32 step) {
-    s32 temp_a0;
-    s32 var_a1;
-
-    temp_a0 = (s32) (from << 0x14) >> 0x14;
-    var_a1 = (s32) ((to - temp_a0) << 0x14) >> 0x14;
-    if (var_a1 >= 0) {
-        if (step < var_a1) {
-            var_a1 = step;
-        }
-    } else if (var_a1 == -0x800) {
-        var_a1 = -step;
-        if (temp_a0 <= 0) {
-            var_a1 = step;
-        }
-    } else if (step < -var_a1) {
-        var_a1 = -step;
-    }
-    return (var_a1 + temp_a0) & 0xFFF;
-}
-#endif
 
 /* Moves `speed` units along `angle`: *dx = speed * sin, *dz = speed * cos (12-bit fixed point). */
 void fly_move(s32 angle, s32 speed, s32 *dx, s32 *dz) {

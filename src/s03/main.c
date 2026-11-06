@@ -1,6 +1,5 @@
 #include "common.h"
 #define STAGE 3
-#define STAGE_ASM "../asm/s03/nonmatchings/main"
 #include "stage.h"
 #include "s03_types.h"
 #include "sounds.h"
@@ -116,25 +115,10 @@ void obj_noop_update(void) {
 #include "../stage/eng_fn_800c5bbc.c"
 #include "combat/respawn.c"
 
-#include "../stage/lib/libc/printf.c"
-#include "../stage/lib/libgte/square_root0.c"
-#include "../stage/lib/libgte/trans_matrix.c"
-#include "../stage/lib/libgte/set_rot_matrix.c"
-#include "../stage/lib/libgte/set_trans_matrix.c"
-#include "lib/floatsidf.c"
-#include "lib/fltsidf.c"
-#include "lib/dbl_shift_us.c"
-#include "lib/dbshiftu.c"
-#include "lib/ltdf2.c"
-#include "../stage/lib/libgcc/ltdf2_obj.c"
 #include "../stage/sys/lz.c"
 
 #include "../stage/math/rand_init.c"
 #include "../stage/math/math.c"
-
-#include "../stage/lib/libgte/vector_normal.c"
-#include "../stage/math/gte_helper.c"
-#include "../stage/lib/libgte/matrix_normal.c"
 
 #include "../stage/sys/pad_input.c"
 
@@ -209,7 +193,6 @@ void obj_noop_update(void) {
 #include "../stage/camera/lock_on.c"
 #include "../stage/combat/shots_fx.c"
 #include "../stage/sound/sound.c"
-#include "../stage/lib/libgte/gte_misc.c"
 #include "../stage/combat/particles.c"
 #include "../stage/world/wall_query.c"
 #include "../stage/player/player_flags.c"

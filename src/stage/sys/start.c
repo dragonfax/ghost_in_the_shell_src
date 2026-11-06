@@ -2,9 +2,7 @@
 
 #include "stage.h"
 
-#ifdef NON_MATCHING
-/* crt0 entry: zeroes the bss words from heap_top up to bss_end, sets $gp to vram_image_b and jumps to stage_main. C companion
-   of hand-written asm (not compiled): $gp is set by hand and the jump is a tail jump (no frame, no return); C has no
+/* crt0 entry: zeroes the bss words from heap_top up to bss_end, sets $gp to vram_image_b and jumps to stage_main. The original is hand-written asm: $gp is set by hand and the jump is a tail jump (no frame, no return); C has no
    form for either. */
 extern s32 bss_end;
 void start(void) {
@@ -16,6 +14,3 @@ void start(void) {
     /* $gp = &vram_image_b */
     stage_main();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", start);
-#endif

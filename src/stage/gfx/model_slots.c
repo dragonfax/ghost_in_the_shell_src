@@ -1012,18 +1012,14 @@ void pchr_bank_load(s32 slot, s32 row, s32 cell_base, s32 *data) {
     pchr_bank.count += count;
 }
 
-#ifdef NON_MATCHING
 /* Calls pchr_bank_load(slot, row, cell_base, data) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void pchr_bank_load_scratch(s32 slot, s32 row, s32 cell_base, s32 *data) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     pchr_bank_load(slot, row, cell_base, data);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", pchr_bank_load_scratch);
-#endif
 
 /* Bounding radius of a vertex table ({count; 12-byte records with s16 x, y, z}), each axis extent grown by offset. */
 s32 model_bounds_radius(s32 offset, s32 *table) {

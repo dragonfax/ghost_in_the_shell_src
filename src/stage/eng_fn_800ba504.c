@@ -3,7 +3,7 @@
 #include "stage.h"
 
 #if STAGE == 6
-/* Only s06 has this aim/turn update: s11 calls other functions at the same spots, so its copy stays asm. */
+/* Only s06 has this aim/turn update: s11 calls other functions at the same spots. */
 s32 obj_in_view_angle(Object *obj, s32 a1, s32 a2);
 void enemy_fire_fx(Object *obj);
 

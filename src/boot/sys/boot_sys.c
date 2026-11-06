@@ -23,9 +23,8 @@ void geom_init(void) {
 
 /* Hand-written: no frame, $ra kept in $t6 and returned through `jr $t6`, bytes copied through $at, a trapping
  * `sub`. unpex_last_word_get returns an address inside this code. */
-#ifdef NON_MATCHING
 /* Decompresses a PEX stream (format in scripts/unpex.py) from src (starting at the size word) to dst and returns
-   the number of bytes written. C companion of hand-written asm (not compiled): the asm keeps $ra in $t6 and
+   the number of bytes written. The original is hand-written asm: the asm keeps $ra in $t6 and
    returns with `jr $t6`, holds the bit buffer, bit count and pointers in $t0-$t5, copies bytes through $at, and
    computes the size with a trapping `sub`. */
 s32 unpex_decompress(void *src, s32 dst) {
@@ -72,21 +71,12 @@ s32 unpex_decompress(void *src, s32 dst) {
     }
 #undef GET_BIT
 }
-#else
-INCLUDE_ASM("../src/boot/asm", unpex_decompress);
-#endif
 
-#ifdef NON_MATCHING
 extern s32 D_80021E80;
-/* Returns the word at D_80021E80, an address inside unpex_decompress (its last instruction). C companion of
-   hand-written asm (not compiled): the asm reaches it with `la $at` + `lw`, which C can't do on a label in code. */
+/* Returns the word at D_80021E80, an address inside unpex_decompress (its last instruction). The original is hand-written asm: the asm reaches it with `la $at` + `lw`, which C can't do on a label in code. */
 s32 unpex_last_word_get(void) {
     return D_80021E80;
 }
-#else
-/* hand-written: loads a word inside unpex_decompress through `la $at` (config/not_c_manual.txt) */
-INCLUDE_ASM("../src/boot/asm", unpex_last_word_get);
-#endif
 
 void func_80021E98(void) {
 }
@@ -364,13 +354,9 @@ void sched_shutdown(void) {
     ExitCriticalSection();
 }
 
-#ifdef NON_MATCHING
-/* Returns the address of music_section_name, read from the rodata word D_80018340. C companion of hand-written asm (not compiled): the word's address is built in $at (lui/addiu), then lw into $v0. */
+/* Returns the address of music_section_name, read from the rodata word D_80018340. The original is hand-written asm: the word's address is built in $at (lui/addiu), then lw into $v0. */
 extern char *D_80018340;
 
 char *func_80022510(void) {
     return D_80018340;
 }
-#else
-INCLUDE_ASM("../src/boot/asm", func_80022510);
-#endif

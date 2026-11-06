@@ -1251,7 +1251,6 @@ void title_point_clip_flags(TitleVertex *arg) {
     register s32 sxy __asm__("a0");
     s32 flag, flags, y;
 
-
     gte_get(SXY2, sxy);
     gte_get_ctrl(FLAG, flag);
     gte_store(MAC3, p, 0xC);
@@ -1535,19 +1534,10 @@ void title_project_verts_offset(TitlePackedVertex *verts, s32 size, s32 *out, s3
     gte_store(SXY2, out, 0);
 }
 
-/* Originally C (with GTE macros), kept as asm: we can't yet reproduce it. A hand session got our C to 99.0%: the
- * only differences are the order of instructions in two spots, decided by cc1's final scheduling pass, and no C
- * form we found gives the original's order. Not a hand edit (both spots are slower in the original); likely a
- * source detail we haven't found, such as a volatile read or a PsyQ GTE macro. HISTORY "title title_model_draw_at by
- * hand"; draft with the analysis: agent_logs/sessions/a4a24_func_800A4A24.c. */
-#ifdef NON_MATCHING
 /* title_model_draw's sibling: draws model model_index at pos (relative to the selected rec), rotated by rot or, with
  * rot NULL, offset only. Lights the model's colours into title_lit_colors (nccs with the item's colour matrix for
  * shade > 0, else a flat gradient entry), then draws each depth-tested group's faces as GT4 (scratch +0x24 == 0)
- * or FT4 into OT entry `level`. C companion of an asm function our C only reached 99.0% on (the draft is
- * agent_logs/sessions/a4a24_func_800A4A24.c; registers, frame and code match except the order of 2 instruction
- * pairs, at 800A4FD0 and 800A50AC..C8, chosen by cc1's final scheduling pass; the draft reads vxy through a
- * volatile pointer and pins the GTE temporaries). Not compiled. */
+ * or FT4 into OT entry `level`. */
 extern u8 D_8010E928[]; /* projected screen xy */
 extern u8 title_lit_colors[]; /* lit colours */
 void title_draw_gt4_faces(s32 count, u8 *screen_xy, u8 *colours, TitleGt4Face *faces);
@@ -1777,9 +1767,6 @@ void title_model_draw_at(s16 *pos, s16 *rot, s32 model_index, s32 shade) {
         data = (s32 *)((u8 *)data + count * 0x20);
     }
 }
-#else
-INCLUDE_ASM("../src/title/asm", title_model_draw_at);
-#endif
 
 /* Builds a texture-window word (0xE2) plus a POLY_GT3 or POLY_GT4 at $gp for each of count faces (last
  * first), all linked into the current OT entry; with scratch flag 0x20 set, back faces (NCLIP <= 0) are

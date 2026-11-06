@@ -4005,16 +4005,11 @@ void cd_init(void) {
     func_800211B8();
 }
 
-#ifdef NON_MATCHING
-/* Closes the CD thread: __builtin_delete(cd_thread_handle). C companion of hand-written asm (not compiled): the
+/* Closes the CD thread: __builtin_delete(cd_thread_handle). The original is hand-written asm: the
    asm only loads $a0 and falls through into __builtin_delete, which follows it (no call, no frame). */
 void cd_thread_close(void) {
     __builtin_delete((void *)cd_thread_handle);
 }
-#else
-/* Hand-written: loads cd_thread_handle into $a0 and falls into __builtin_delete below (a second entry point). */
-INCLUDE_ASM("../src/boot/asm", cd_thread_close);
-#endif
 
 void thread_close(s32 th);
 /* Compiler delete helper: a null pointer is a no-op, anything else goes to thread_close. */

@@ -165,15 +165,14 @@ void tile_pos_wide(s32 index, s32 *out_x, s32 *out_y) {
     *out_y = 0xD8;
 }
 
-/* Final asm (hand_regs): the textured cylinder renderer. Half of it is compiler output: the setup (camera
+/* The textured cylinder renderer. Half of it is compiler output: the setup (camera
  * matrix via rot_matrix_to_angles, rot_matrix_b, scale_rows, rcossin_tbl), so it began as C. Its inner
  * primitive loop was then hand-optimized in assembly: HI/LO hold the clip bounds and a pointer, $at holds
- * texture coordinates (GCC uses neither), so the whole function stays asm. */
-#ifdef NON_MATCHING
+ * texture coordinates (GCC uses neither). */
 /* Draws the textured cylinder (2 sections x 16 columns of 8x8-quad cells) into ot. Builds the camera-relative GTE
  * state, projects the 3x17 cyl_table corners into clip codes, then per visible cell projects a 9x9 vertex grid and
  * links a textured quad (POLY_FT4) per non-zero entry of the cyl_tex_table texture table into 32 chained OT slots in the
- * packet buffer, which are linked into ot at the end. C companion of hand-written asm (not compiled): the inner quad
+ * packet buffer, which are linked into ot at the end. The original is hand-written asm: the inner quad
  * loop keeps the texture entry in $at and the packet pointer and OT head in HI/LO ($s3 = ot is parked in LO). */
 typedef struct CylVertex {
     u32 sxy;
@@ -404,22 +403,15 @@ void cylinder_draw(WorkArea *wa, u32 *ot) {
     cmd->pad = 0;
     addPrim(ot, cmd);
 }
-#else
-INCLUDE_ASM("../src/stage/asm", cylinder_draw);
-#endif
 
-#ifdef NON_MATCHING
 /* Calls cylinder_draw(wa, ot) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame by hand
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame by hand
  * (FINDINGS "$sp in C"). */
 void cylinder_draw_scratch(WorkArea *wa, u32 *ot) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     cylinder_draw(wa, ot);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", cylinder_draw_scratch);
-#endif
 
 void img_upload_4bpp(u16 *arg0, u8 *arg1) {
     s16 rect[4];
@@ -493,11 +485,10 @@ void fn_800D5370(s32 value) {
     d_80120008 = value;
 }
 
-#ifdef NON_MATCHING
 /* Back-face test and a one-pixel nudge of the third vertex (a3) of a triangle (a0 = z limit; a1, a2, a3 = vertices,
  * the screen x/y at +4/+6 and z at +8). Returns early if either of a1/a2 is below z_min, or if the triangle is
  * front-facing (nclip >= 0). Otherwise a3's y (+6) moves one pixel by the ordering of a1 and a2's x (+4), and a3's
- * x (+4) by the ordering of their y (+6). C companion of hand-written asm (not compiled): the GTE loads the three
+ * x (+4) by the ordering of their y (+6). The original is hand-written asm: the GTE loads the three
  * SXY words (SXY0 = a1, SXY1 = a2, SXY2 = a3) and runs NCLIP; the asm reads MAC0 in the branch delay slot and keeps
  * the adjusted values in $at. */
 typedef struct ProjVert {
@@ -528,6 +519,3 @@ void fn_800D5380(s32 z_min, ProjVert *v1, ProjVert *v2, ProjVert *v3) {
         v3->sx += (v1->sy < v2->sy) ? -1 : 1;
     }
 }
-#else
-INCLUDE_ASM("../src/stage/asm", fn_800D5380);
-#endif

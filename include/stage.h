@@ -2,8 +2,7 @@
 #define STAGE_H
 
 /* The stage engine, shared by all 13 stage overlays (src/stage/). Each stage's main.c defines STAGE (1-13)
- * and STAGE_ASM, the folder its not-yet-decompiled functions are included from, before including engine
- * files. The stages were built from slightly different versions of some files: `#if STAGE == n` marks
+ * before including engine files. The stages were built from slightly different versions of some files: `#if STAGE == n` marks
  * code that only some stages have. */
 
 #include "stage_types.h"
@@ -138,8 +137,7 @@ extern s32 (*slot_148)(void);
 extern s32 (*slot_15D)(s32 index);
 extern s32 (*slot_remove_frame_task)(s32 handle); /* remove a frame task */
 /* The heap's start (the end of the stage's bss): a word the linker put in the text section, after the libgte
- * objects. splat splits it as a one-word function (in s03, s06, s11 as a label inside the library function
- * before it); it stays asm there. */
+ * objects. */
 extern s32 heap_base;
 extern void (*slot_1C0)(s32);
 extern void (*slot_wait_frames)(s32);
@@ -469,8 +467,7 @@ extern s32 key_config_index;           /* the selected one */
 extern FadeItem fade_items[];
 extern WorkArea *work_area_ptr;
 
-/* The current area (mission * 3 + part; get_area, set_area): a data word at the end of the code, which splat
- * splits as a 4-byte "function" (its INCLUDE_ASM stays). */
+/* The current area (mission * 3 + part; get_area, set_area): a data word at the end of the code. */
 extern s32 area;
 extern u32 bg_buffer;          /* the background job's buffer (an address, compared with the heap top) */
 extern PadInput pad_mirror; /* a second input state, reset with pad1 (input_reset) */

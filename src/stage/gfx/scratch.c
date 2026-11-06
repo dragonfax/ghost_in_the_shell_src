@@ -495,18 +495,14 @@ void draw_view_entries(u8 *ot) {
     }
 }
 
-#ifdef NON_MATCHING
 /* Calls draw_view_entries(ot) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame
  * by hand (FINDINGS "$sp in C"). */
 void draw_view_entries_scratch(u8 *ot) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     draw_view_entries(ot);
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", draw_view_entries_scratch);
-#endif
 
 void track_reset_all(void) {
     Track *track;

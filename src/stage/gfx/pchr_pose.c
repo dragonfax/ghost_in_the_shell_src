@@ -1576,9 +1576,8 @@ void *model_groups_draw(void *prim, s32 ot, ModelTables *model, s32 flags) {
     return prim;
 }
 
-#ifdef NON_MATCHING
 /* Calls model_groups_draw(prim, ot, model, flags) on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame by hand
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame by hand
  * (FINDINGS "$sp in C"). */
 void *model_groups_draw_scratch(void *prim, s32 ot, ModelTables *model, s32 flags) {
     void *ret;
@@ -1588,9 +1587,6 @@ void *model_groups_draw_scratch(void *prim, s32 ot, ModelTables *model, s32 flag
     SCRATCH_STACK_LEAVE_BELOW();
     return ret;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", model_groups_draw_scratch);
-#endif
 
 /* Draws the light environment's records (gte_light_setup): loads the GTE screen state, then for each record
  * (draw_list.end down, light_rec_count of them) the colour, each vertex's translation and matrix, and calls
@@ -1772,11 +1768,10 @@ void light_env_draw(u8 *base) {
     gte_set_ctrl(H, 0x80);
 }
 
-/* hand-written: loop bound in $at, a value spilled to LO (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: loop bound in $at, a value spilled to LO */
 /* Transforms a model's vertex groups to screen space into buf (one 12-byte ScreenVert per vertex) and returns the
    nearest vertex z (0 if negative), or -1 when every vertex is off-screen (only when flags & 1 asks for the clip
-   test). C companion of hand-written asm (not compiled): keeps the vertex base in LO (mtlo), the view size in HI
+   test). The original is hand-written asm: keeps the vertex base in LO (mtlo), the view size in HI
    (mthi, set by light_env_draw) and the vertex offset in the GTE's VXY2/VZ2, and software-pipelines RTPS (each
    result is stored one vertex late); written here without the pipelining. */
 typedef struct ScreenVert {
@@ -1848,17 +1843,12 @@ s32 vert_transform_groups(s32 count, s16 *groups, u8 *verts, ScreenVert *buf, s3
     }
     return min_z;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", vert_transform_groups);
-#endif
 
 /* GTE gouraud triangles/quads into the OT. Hand-written in the original: the OT link lives in $at. */
-#ifdef NON_MATCHING
 /* Builds textured, lit polygons from a model's face records (0x1C bytes each) into prim, links each into the
    ordering-table slot ot, and returns the new prim pointer. Faces whose vertices are all past the same screen edge
    (clip bits ANDed) or that face away (NCLIP <= 0) are skipped. The colour is NCDS of the face's normal (or DPCL of
-   the vertex colour when record flag bit 0 is set); a fourth vertex index makes a quad. C companion of hand-written
-   asm (not compiled): holds the OT link in $at through the loop (lwl/swl $at, sll $at) and the slot pointer in LO. */
+   the vertex colour when record flag bit 0 is set); a fourth vertex index makes a quad. The original is hand-written asm: holds the OT link in $at through the loop (lwl/swl $at, sll $at) and the slot pointer in LO. */
 typedef struct LitPrim {
     u32 tag;          /* OT link in the low 24 bits, length in the top byte (8 tri, 0xA quad) */
     u32 word4;        /* record word 1 */
@@ -1955,16 +1945,12 @@ u8 *prim_build_tris(s32 count, u8 *recs, u8 *buf, u8 *norms, u8 *prim, u32 *ot) 
     *ot = head >> 8;                            /* swl $at, 2(ot) */
     return prim;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", prim_build_tris);
-#endif
 
-/* hand-written: branches into prim_subdiv_tri (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: branches into prim_subdiv_tri */
 /* Like prim_build_tris but for faces near the camera (flag 0x10): builds lit, textured polygons from the 0x1C-byte face
    records, subdividing them (prim_subdiv_tri) when they cross the screen edge or are large, so the PS1's affine texture
    mapping and 1024-pixel limit don't distort them. Stops early when the primitive buffer is within 0x6000 bytes of
-   its end (d_8011FFE4) and returns the new prim pointer. C companion of hand-written asm (not compiled): its loop
+   its end (d_8011FFE4) and returns the new prim pointer. The original is hand-written asm: its loop
    is shared with prim_subdiv_tri (it jumps to .L490 for "next face" and falls into it with $ra set to the entry
    fn_800D1D6C by hand); the state below lives in registers $s0-$s7, $t9, $at, $gp (a private stack of 0x38-byte
    frames in the scratchpad) and $a1 across both functions. It also saves and restores the GTE rotation/translation
@@ -2068,18 +2054,14 @@ u8 *prim_build_tris_subdiv(s32 count, u8 *recs, u8 *buf, u8 *norms, u8 *prim, u3
     *ot = c.ot_link >> 8;                       /* swl $at, 2(ot) */
     return c.prim;
 }
-#else
-INCLUDE_ASM("../src/stage/asm", prim_build_tris_subdiv);
-#endif
 
-/* hand-written: subroutine branching back into prim_build_tris_subdiv (config/not_c_manual.txt) */
-#ifdef NON_MATCHING
+/* hand-written: subroutine branching back into prim_build_tris_subdiv */
 /* Emits or splits one lit triangle (corners va, vb, vc in c). If the corners are all past one edge (clip_or set)
    it returns without output. If the subdivision depth is used up, or every edge is within the size limits in x
    and y, it writes the primitive (a flat-lit 7-word triangle, or a Gouraud 9-word one when rec_flags < 0) and
    advances c->prim. Otherwise it builds the three edge midpoints (screen x/y, colour and uv averaged, RTPS on the
    midpoint when clipping), and calls itself on the three corner triangles and the middle one with depth - 1.
-   C companion of hand-written asm (not compiled): a subroutine with its own calling convention (state in
+   The original is hand-written asm: a subroutine with its own calling convention (state in
    $s0-$s7/$t9/$at, the recursion frames on a private stack in $gp), entered from prim_build_tris_subdiv both by a call and by
    a jump back from fn_800D1D6C with $ra set by hand. */
 void prim_subdiv_tri(SubdivCtx *c) {
@@ -2132,9 +2114,6 @@ void prim_subdiv_tri(SubdivCtx *c) {
         c->prim += 0x28;
     }
 }
-#else
-INCLUDE_ASM("../src/stage/asm", prim_subdiv_tri);
-#endif
 
 void texel_row_scale(u16 *src, s16 *dst, s32 count, s32 scale) {
     s32 texel, b, g, r;
@@ -3251,18 +3230,14 @@ void scene_models_project(void) {
     light_rec_count = (u32)((u8 *)out - (u8 *)light_rec_table) / sizeof(OutRec18);
 }
 
-#ifdef NON_MATCHING
 /* Calls scene_models_project() on the scratchpad stack: the old $sp is saved at its top word, $sp just below it.
- * C companion of hand-written asm (not compiled): the asm keeps the old $sp in $at and sets up the frame by hand
+ * The original is hand-written asm: the asm keeps the old $sp in $at and sets up the frame by hand
  * (FINDINGS "$sp in C"). */
 void scene_models_project_scratch(void) {
     SCRATCH_STACK_ENTER_BELOW(SCRATCH_STACK_TOP);
     scene_models_project();
     SCRATCH_STACK_LEAVE_BELOW();
 }
-#else
-INCLUDE_ASM("../src/stage/asm", scene_models_project_scratch);
-#endif
 
 void cyl_init(void) {
     d_8011FFF8 = 0;
