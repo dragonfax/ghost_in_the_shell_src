@@ -185,9 +185,6 @@ void loader_screen_reset(void) {
     gte_set(VZ2, 0);
 }
 
-SVC_HEADER_CONSTS(screen_a);
-SVC_HEADER_CONSTS(screen_b);
-
 void RotMatrix(u16 *rot, void *m);
 void ScaleMatrix(void *m, void *scale);
 void SetRotMatrix(void *m);
@@ -656,18 +653,6 @@ void loader_show_entry(s32 unused, s32 mode) {
         slot_0AA(0);
     }
 }
-
-/* The objects after this one: their service header constants. The third one also has gte.h's RCS id, packed
- * right after the message's NUL: that object wasn't built with cc1's word alignment of char arrays, so its two
- * strings are one array here. */
-SVC_HEADER_CONSTS(entry_a);
-SVC_HEADER_CONSTS(entry_b);
-static void **const svc_table_entry_c = (void **)0x80010000;
-static const char bios_version_error_and_gte_h_rcsid_entry_c[] =
-    "BIOS:Version Error.\r\0"
-    "$Header: /auto/bigbird/cvs/PS-X/src/gte/gte.h,v 1.2 1994/06/28 05:27:21 oka Exp $";
-SVC_HEADER_CONSTS(entry_d);
-SVC_HEADER_CONSTS(entry_e);
 
 extern LoaderToneVol loader_tone_volume;
 extern s32 (*slot_tone_volume)(s32); /* service slot: VAB tone volume */
@@ -2343,7 +2328,6 @@ void loader_node_update(void *unused, LoaderNode *node) {
         sound_alloc_channel_alt();
     }
 }
-
 
 s32 func_800E2AFC(s32 a0, s32 a1, s32 a2, s32 a3);
 /* Draws the cursor marker at x = node->unk_2C: a gouraud quad (dark/white bands),

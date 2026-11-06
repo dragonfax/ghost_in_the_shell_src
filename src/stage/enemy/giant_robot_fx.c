@@ -96,16 +96,6 @@ void rot_turn_toward(s32 *target, s16 *rot, s32 pitch_step, s32 yaw_step) {
     scratch_top -= 16;
 }
 
-#if STAGE == 1
-#include "../../s01/enemy/giant_robot_fx_part2.c"
-#elif STAGE == 6
-#include "../../s06/enemy/giant_robot_fx_part2.c"
-#elif STAGE == 7
-#include "../../s07/enemy/giant_robot_fx_part2.c"
-#elif STAGE == 12
-#include "../../s12/enemy/giant_robot_fx_part2.c"
-#endif
-
 /* Result discarded. */
 s32 get_angle_to_player(s32 *pos) {
     s32 *player = player_position();
@@ -220,6 +210,8 @@ s32 cam_point_in_zone(s32 id, s32 x, s32 y, s32 z, s32 radius, s32 down, s32 up)
 #endif
 
 #if STAGE == 1
+s32 trace_shot_segment(VECTOR *from, VECTOR *to, VECTOR *hit, s32 flags, s32 type, s32 damage);
+
 /* Runs trace_shot_segment from `from` to `to` and keeps its result and hit point in giant_robot_aim_result..giant_robot_aim_z. */
 void giant_robot_aim_trace(VECTOR *from, VECTOR *to, s32 a) {
     s32 hit[3];

@@ -83,7 +83,7 @@ u8 *str_find_in_range(u8 *needle, u8 *start, u8 *end) {
     return 0;
 }
 
-u8 music_section_name[8] RODATA = "[MUSIC]";
+u8 music_section_name[8] = "[MUSIC]";
 
 extern u8 music_section_name[];
 

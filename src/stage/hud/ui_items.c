@@ -1234,9 +1234,9 @@ wait_out:
     ui_item_free(idx);
 }
 
-char str_total_label[8] RODATA = "Total";
+char str_total_label[8] = "Total";
 
-char str_score_label[8] RODATA = "Score";
+char str_score_label[8] = "Score";
 
 /* Results screen part 2: bonus rows, then rank/hitrate/destroy/class. */
 void mission_result_rows_update(CoItem *item) {

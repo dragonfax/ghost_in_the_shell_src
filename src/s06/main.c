@@ -6,6 +6,7 @@
 #include "sounds.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 #include "../stage/sys/file_heap.c"
 #include "enemy/motorcycle.c"
 
@@ -221,6 +222,7 @@ void hud_frame_draw();
 #include "enemy/part_attach.c"
 
 #include "../stage/enemy/giant_robot_fx.c"
+#include "enemy/giant_robot_fx_part2.c"
 #include "combat/fx_frame.c"
 
 #include "../stage/lib/libc/printf.c"

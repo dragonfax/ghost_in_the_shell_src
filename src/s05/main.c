@@ -8,11 +8,12 @@
 void obj_play_effects(Object *obj);
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_mbaz_tp0_clt[] = "mbaz_tp0.clt";
 const char file_mbaz_ch0_clt[] = "mbaz_ch0.clt";
 const char file_mbaz_tp0_xs3[] = "mbaz_tp0.xs3";

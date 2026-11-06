@@ -6,11 +6,12 @@
 #include "sounds.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_msgs_spr_so3[] = "msgs_spr.so3";
 const char file_msgs_spr_grc[] = "msgs_spr.grc";
 const char file_msgs_spr_clt[] = "msgs_spr.clt";

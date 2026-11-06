@@ -6,11 +6,12 @@
 #include "sounds.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_ohel_tp1_clt[] = "ohel_tp1.clt";
 const char file_ohel_tp0_clt[] = "ohel_tp0.clt";
 const char file_ohel_ch0_clt[] = "ohel_ch0.clt";
@@ -108,6 +109,7 @@ extern StateEntry placed_actor_states[1];
 #include "enemy/aim_helpers.c"
 
 #include "../stage/enemy/giant_robot_fx.c"
+#include "enemy/giant_robot_fx_part2.c"
 #include "core/stage.c"
 
 extern s32 alert_flag, D_8011FEB0, orbit_flag, D_8011FEB8, cam_timer;

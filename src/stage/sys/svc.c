@@ -119,36 +119,6 @@ s32 *get_file_name(void) {
     return (s32 *) &file_name_buf;
 }
 
-#if STAGE == 1
-#include "../../s01/sys/svc_part1.c"
-#elif STAGE == 2
-#include "../../s02/sys/svc_part1.c"
-#elif STAGE == 3
-#include "../../s03/sys/svc_part1.c"
-#elif STAGE == 4
-#include "../../s04/sys/svc_part1.c"
-#elif STAGE == 5
-#include "../../s05/sys/svc_part1.c"
-#elif STAGE == 6
-#include "../../s06/sys/svc_part1.c"
-#elif STAGE == 7
-#include "../../s07/sys/svc_part1.c"
-#elif STAGE == 8
-#include "../../s08/sys/svc_part1.c"
-#elif STAGE == 9
-#include "../../s09/sys/svc_part1.c"
-#elif STAGE == 10
-#include "../../s10/sys/svc_part1.c"
-#elif STAGE == 11
-#include "../../s11/sys/svc_part1.c"
-#elif STAGE == 12
-#include "../../s12/sys/svc_part1.c"
-#elif STAGE == 13
-#include "../../s13/sys/svc_part1.c"
-#endif
-
-SVC_HEADER_CONSTS(eng_files);
-
 /* Starts a seek for a debug name (-2 for none): prints the name and the seek's result while pad 1 is down. */
 s32 file_seek(char *name) {
     s32 result;
@@ -246,8 +216,8 @@ static const RECT screen_rect = {0, 0, 0x400, 0x200};
 /* Stage start-up: stops with the BIOS version message unless the services report version 0x300, then waits a
  * frame, runs service 0x1C0, blanks the display and clears the whole frame buffer to black. */
 void svc_0(void) {
-    if (((s32 (*)(void))svc_table_eng_files[0])() != 0x300) {
-        printf(bios_version_error_eng_files);
+    if (((s32 (*)(void))SVC_TABLE[0])() != 0x300) {
+        printf(BIOS_VERSION_ERROR);
         for (;;) {
         }
     }

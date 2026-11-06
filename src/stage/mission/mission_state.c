@@ -41,11 +41,11 @@ void mission_state_reset(void) {
 }
 
 #if STAGE == 9 || STAGE == 10 || STAGE == 12
-char str_msgs_spr_so3[16] RODATA = "msgs_spr.so3";
+char str_msgs_spr_so3[16] = "msgs_spr.so3";
 
-char str_msgs_spr_grc[16] RODATA = "msgs_spr.grc";
+char str_msgs_spr_grc[16] = "msgs_spr.grc";
 
-char str_msgs_spr_clt[16] RODATA = "msgs_spr.clt";
+char str_msgs_spr_clt[16] = "msgs_spr.clt";
 #endif
 
 #if STAGE == 1

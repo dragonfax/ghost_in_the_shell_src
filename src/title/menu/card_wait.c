@@ -166,8 +166,6 @@ void title_message_draw(TitleTextTask *task) {
     }
 }
 
-SVC_HEADER_CONSTS(message);
-
 extern u8 title_records[];
 extern TitleSideEntry title_record_sides[];
 void title_track_update();  /* a function reached by pointer */

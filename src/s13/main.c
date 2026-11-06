@@ -6,11 +6,12 @@
 #include "sounds.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_msgs_spr_so3[] = "msgs_spr.so3";
 const char file_msgs_spr_grc[] = "msgs_spr.grc";
 const char file_msgs_spr_clt[] = "msgs_spr.clt";
@@ -60,31 +61,31 @@ extern RecTemplate D_801177C8, D_801177E0, fx_owner_template_a, D_8011873C;
 extern RecTemplate D_801177C8, D_801177E0, D_80118724, fx_owner_template_b;
 #include "../stage/eng_fn_800c571c.c"
 
-char str_targ_tp0_clt[16] RODATA = "TARG_tp0.clt";
+char str_targ_tp0_clt[16] = "TARG_tp0.clt";
 
-char str_targ_ch0_clt[16] RODATA = "TARG_ch0.clt";
+char str_targ_ch0_clt[16] = "TARG_ch0.clt";
 
-char str_targ_tp0_xs3[16] RODATA = "TARG_tp0.xs3";
+char str_targ_tp0_xs3[16] = "TARG_tp0.xs3";
 
-char str_targ_ch0_vx1[16] RODATA = "TARG_ch0.vx1";
+char str_targ_ch0_vx1[16] = "TARG_ch0.vx1";
 
-char str_targcb0cb4[16] RODATA = "TARG_cb0.cb4";
+char str_targcb0cb4[16] = "TARG_cb0.cb4";
 
-char str_bosd_tp1_clt[16] RODATA = "bosd_tp1.clt";
+char str_bosd_tp1_clt[16] = "bosd_tp1.clt";
 
-char str_bosd_tp0_clt[16] RODATA = "bosd_tp0.clt";
+char str_bosd_tp0_clt[16] = "bosd_tp0.clt";
 
-char str_bosd_ch0_clt[16] RODATA = "bosd_ch0.clt";
+char str_bosd_ch0_clt[16] = "bosd_ch0.clt";
 
-char str_bosd_tp1_xs3[16] RODATA = "bosd_tp1.xs3";
+char str_bosd_tp1_xs3[16] = "bosd_tp1.xs3";
 
-char str_bosd_tp0_xs3[16] RODATA = "bosd_tp0.xs3";
+char str_bosd_tp0_xs3[16] = "bosd_tp0.xs3";
 
-char str_bosd_ch1_vx1[16] RODATA = "bosd_ch1.vx1";
+char str_bosd_ch1_vx1[16] = "bosd_ch1.vx1";
 
-char str_bosd_ch0_vx1[16] RODATA = "bosd_ch0.vx1";
+char str_bosd_ch0_vx1[16] = "bosd_ch0.vx1";
 
-char str_bosd_ch0cb4[16] RODATA = "bosd_ch0.cb4";
+char str_bosd_ch0cb4[16] = "bosd_ch0.cb4";
 
 #define fade_red_start_at effect_spawn_at_pos
 #define fx_rec34_spawn_pos effect_spawn_plain

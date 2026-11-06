@@ -1,7 +1,6 @@
 /* sys: one of startup's own original source files (scripts/objmap.py); part of src/startup/main.c's unit, included there. */
 
-/* The next object, sys.c: its service header constants and its RCS id. */
-SVC_HEADER_CONSTS(sys);
+/* sys.c's RCS id. */
 static const char sys_c_rcsid[] = "$Id: sys.c,v 1.126 1996/09/13 06:29:54 noda Exp $";
 
 INCLUDE_ASM("../asm/startup/nonmatchings/main", func_800E8718);

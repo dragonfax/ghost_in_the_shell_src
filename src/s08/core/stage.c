@@ -439,9 +439,9 @@ s32 grid_controller_spawn(void) {
     return 1;
 }
 
-RectU night_vision_rect RODATA = {0x300, 0x0, 0x100, 0xD8}; /* the night vision copy rect */
+RectU night_vision_rect = {0x300, 0x0, 0x100, 0xD8}; /* the night vision copy rect */
 __asm__(".globl night_vision_rect_y\n.set night_vision_rect_y, night_vision_rect+0x2\n");
-char str_dor8_ch0cb4[16] RODATA = "dor8_ch0.cb4";
+char str_dor8_ch0cb4[16] = "dor8_ch0.cb4";
 
 extern s16 mission_door_ids[];
 extern const char next_area_text[];

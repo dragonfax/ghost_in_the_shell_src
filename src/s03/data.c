@@ -2117,7 +2117,7 @@ u32 D_8011DCA4[5] = {0};
 
 #include "../stage/data/tint_scale_r.c"
 
-s16 video_mode_id WORD_ALIGNED = 0;
+s16 video_mode_id = 0;
 
 #include "../stage/data/debug_cam_speed_table.c"
 
@@ -2481,13 +2481,13 @@ s32 door_pattern_base = 0;
 
 s16 enemy_sound_timer = 0;
 
-s16 enemy_sound_5042_flag WORD_ALIGNED = 0;
+s16 enemy_sound_5042_flag = 0;
 
-s16 enemy_sound_5043_flag WORD_ALIGNED = 0;
+s16 enemy_sound_5043_flag = 0;
 
-s16 enemy_sound_5044_flag WORD_ALIGNED = 0;
+s16 enemy_sound_5044_flag = 0;
 
-s16 enemy_loop_sound_flag WORD_ALIGNED = 0;
+s16 enemy_loop_sound_flag = 0;
 
 s32 enemy_loop_sound_id = 0;
 
@@ -2501,7 +2501,7 @@ s32 enemy_death_sound_id = 0;
 
 s16 enemy_death_sound_flag = 0;
 
-s16 D_801208FC WORD_ALIGNED = 0;
+s16 D_801208FC = 0;
 
 s32 D_80120900 = 0;
 

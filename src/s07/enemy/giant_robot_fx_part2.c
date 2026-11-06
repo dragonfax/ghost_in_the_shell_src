@@ -1,4 +1,4 @@
-/* s07's own part of src/stage/enemy/giant_robot_fx.c, included there at this place (scripts/objtree.py). */
+/* s07's shot tracing, used by src/stage/enemy/giant_robot_fx.c. */
 
 s32 trace_hit_damage(s32 *from, s32 *to, s32 *hit, s32 size, s32 type, s32 damage) {
     s16 target;

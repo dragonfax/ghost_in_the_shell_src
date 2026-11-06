@@ -1,4 +1,4 @@
-/* s12's own part of src/stage/enemy/giant_robot_fx.c, included there at this place (scripts/objtree.py). */
+/* s12's shot tracing, used by src/stage/enemy/giant_robot_fx.c. */
 
 /* Clips segment a->b against the near plane y = -0x400. If exactly one end
  * is behind it, writes the crossing point and returns 1; otherwise copies b

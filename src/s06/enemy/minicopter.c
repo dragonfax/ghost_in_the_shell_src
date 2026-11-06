@@ -189,20 +189,20 @@ void fly_pursue_update(Object *obj, s32 unk_a1) {
     fly_pursue_player(obj, unk_a1);
 }
 
-Vec4 D_800B5D9C RODATA = {0};
-char str_fap1_tp1_clt[16] RODATA = "fap1_tp1.clt";
+Vec4 D_800B5D9C = {0};
+char str_fap1_tp1_clt[16] = "fap1_tp1.clt";
 
-char str_fap1_tp0_clt[16] RODATA = "fap1_tp0.clt";
+char str_fap1_tp0_clt[16] = "fap1_tp0.clt";
 
-char str_fap1_ch0_clt[16] RODATA = "fap1_ch0.clt";
+char str_fap1_ch0_clt[16] = "fap1_ch0.clt";
 
-char str_fap1_tp1_xs3[16] RODATA = "fap1_tp1.xs3";
+char str_fap1_tp1_xs3[16] = "fap1_tp1.xs3";
 
-char str_fap1_tp0_xs3[16] RODATA = "fap1_tp0.xs3";
+char str_fap1_tp0_xs3[16] = "fap1_tp0.xs3";
 
-char str_fap1_ch0_vx1[16] RODATA = "fap1_ch0.vx1";
+char str_fap1_ch0_vx1[16] = "fap1_ch0.vx1";
 
-char str_fap1_ch0cb4[16] RODATA = "fap1_ch0.cb4";
+char str_fap1_ch0cb4[16] = "fap1_ch0.cb4";
 
 void flier_fire_at_target(Object *obj, s32 *target);
 /* Pursues the player; when the fire countdown runs out, samples the flow for an aim point

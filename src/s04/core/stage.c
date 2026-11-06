@@ -92,11 +92,11 @@ void stage_start(void) {
     set_data_base((s32)&stage_data_base);
 }
 
-char str_ctl4_tp0_clt[16] RODATA = "ctl4_tp0.clt";
+char str_ctl4_tp0_clt[16] = "ctl4_tp0.clt";
 
-char str_ctl4_tp0_xs3[16] RODATA = "ctl4_tp0.xs3";
+char str_ctl4_tp0_xs3[16] = "ctl4_tp0.xs3";
 
-char str_ctl4_ch0_vx1[16] RODATA = "ctl4_ch0.vx1";
+char str_ctl4_ch0_vx1[16] = "ctl4_ch0.vx1";
 
 void sound_driver_update(void);
 void player_spark_add(void);

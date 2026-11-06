@@ -6,6 +6,7 @@
 #include "sounds.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
@@ -96,71 +97,71 @@ extern s32 tank2_asset[3];
 extern s32 model_pchr_saved;
 #include "../stage/eng_fn_800c0e88.c"
 
-char elevator_start_msg[32] RODATA = "#2Accessed!  Elevatorstarting.\241";
+char elevator_start_msg[32] = "#2Accessed!  Elevatorstarting.\241";
 
-char str_land_tp1_clt[16] RODATA = "land_tp1.clt";
+char str_land_tp1_clt[16] = "land_tp1.clt";
 
-char str_land_tp0_clt[16] RODATA = "land_tp0.clt";
+char str_land_tp0_clt[16] = "land_tp0.clt";
 
-char str_land_ch0_clt[16] RODATA = "land_ch0.clt";
+char str_land_ch0_clt[16] = "land_ch0.clt";
 
-char str_land_tp1_xs3[16] RODATA = "land_tp1.xs3";
+char str_land_tp1_xs3[16] = "land_tp1.xs3";
 
-char str_land_tp0_xs3[16] RODATA = "land_tp0.xs3";
+char str_land_tp0_xs3[16] = "land_tp0.xs3";
 
-char str_land_ch0_vx1[16] RODATA = "land_ch0.vx1";
+char str_land_ch0_vx1[16] = "land_ch0.vx1";
 
-char str_land_ch0cb4[16] RODATA = "land_ch0.cb4";
+char str_land_ch0cb4[16] = "land_ch0.cb4";
 
-char str_arkb_tp0_clt[16] RODATA = "arkb_tp0.clt";
+char str_arkb_tp0_clt[16] = "arkb_tp0.clt";
 
-char str_arkb_ch0_clt[16] RODATA = "arkb_ch0.clt";
+char str_arkb_ch0_clt[16] = "arkb_ch0.clt";
 
-char str_arkb_tp0_xs3[16] RODATA = "arkb_tp0.xs3";
+char str_arkb_tp0_xs3[16] = "arkb_tp0.xs3";
 
-char str_arkb_ch0_vx1[16] RODATA = "arkb_ch0.vx1";
+char str_arkb_ch0_vx1[16] = "arkb_ch0.vx1";
 
-char str_arkb_ch0cb4[16] RODATA = "arkb_ch0.cb4";
+char str_arkb_ch0cb4[16] = "arkb_ch0.cb4";
 
-char str_troi_tp0_clt[16] RODATA = "troi_tp0.clt";
+char str_troi_tp0_clt[16] = "troi_tp0.clt";
 
-char str_troi_ch0_clt[16] RODATA = "troi_ch0.clt";
+char str_troi_ch0_clt[16] = "troi_ch0.clt";
 
-char str_troi_tp0_xs3[16] RODATA = "troi_tp0.xs3";
+char str_troi_tp0_xs3[16] = "troi_tp0.xs3";
 
-char str_troi_ch0_vx1[16] RODATA = "troi_ch0.vx1";
+char str_troi_ch0_vx1[16] = "troi_ch0.vx1";
 
-char str_troi_ch0cb4[16] RODATA = "troi_ch0.cb4";
+char str_troi_ch0cb4[16] = "troi_ch0.cb4";
 
-char str_sel1_tp0_clt[16] RODATA = "sel1_tp0.clt";
+char str_sel1_tp0_clt[16] = "sel1_tp0.clt";
 
-char str_sel1_ch0_clt[16] RODATA = "sel1_ch0.clt";
+char str_sel1_ch0_clt[16] = "sel1_ch0.clt";
 
-char str_sel1_tp0_xs3[16] RODATA = "sel1_tp0.xs3";
+char str_sel1_tp0_xs3[16] = "sel1_tp0.xs3";
 
-char str_sel1_ch0_vx1[16] RODATA = "sel1_ch0.vx1";
+char str_sel1_ch0_vx1[16] = "sel1_ch0.vx1";
 
-char str_sel1_ch0cb4[16] RODATA = "sel1_ch0.cb4";
+char str_sel1_ch0cb4[16] = "sel1_ch0.cb4";
 
-char str_hou1_tp0_clt[16] RODATA = "hou1_tp0.clt";
+char str_hou1_tp0_clt[16] = "hou1_tp0.clt";
 
-char str_hou1_ch0_clt[16] RODATA = "hou1_ch0.clt";
+char str_hou1_ch0_clt[16] = "hou1_ch0.clt";
 
-char str_hou1_tp0_xs3[16] RODATA = "hou1_tp0.xs3";
+char str_hou1_tp0_xs3[16] = "hou1_tp0.xs3";
 
-char str_hou1_ch0_vx1[16] RODATA = "hou1_ch0.vx1";
+char str_hou1_ch0_vx1[16] = "hou1_ch0.vx1";
 
-char str_hou1_ch0cb4[16] RODATA = "hou1_ch0.cb4";
+char str_hou1_ch0cb4[16] = "hou1_ch0.cb4";
 
-char str_tnk2_tp0_clt[16] RODATA = "tnk2_tp0.clt";
+char str_tnk2_tp0_clt[16] = "tnk2_tp0.clt";
 
-char str_tnk2_ch0_clt[16] RODATA = "tnk2_ch0.clt";
+char str_tnk2_ch0_clt[16] = "tnk2_ch0.clt";
 
-char str_tnk2_tp0_xs3[16] RODATA = "tnk2_tp0.xs3";
+char str_tnk2_tp0_xs3[16] = "tnk2_tp0.xs3";
 
-char str_tnk2_ch0_vx1[16] RODATA = "tnk2_ch0.vx1";
+char str_tnk2_ch0_vx1[16] = "tnk2_ch0.vx1";
 
-char str_tnk2_ch0cb4[16] RODATA = "tnk2_ch0.cb4";
+char str_tnk2_ch0cb4[16] = "tnk2_ch0.cb4";
 
 #include "../stage/eng_fn_800c12c0.c"
 

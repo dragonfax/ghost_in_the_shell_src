@@ -221,21 +221,21 @@ s32 title_is_idle(void) {
     return D_80110D04 == 0;
 }
 
-char str_data3[24] RODATA = "DATA-3\000\000DATA-2\000\000DATA-1\000";
+char str_data3[24] = "DATA-3\000\000DATA-2\000\000DATA-1\000";
 
-u8 title_str_new_game[12] RODATA = "NEW GAME";
+u8 title_str_new_game[12] = "NEW GAME";
 
-u8 title_str_complete[12] RODATA = "COMPLETE";
+u8 title_str_complete[12] = "COMPLETE";
 
-u8 title_str_mission[12] RODATA = "MISSION-";
+u8 title_str_mission[12] = "MISSION-";
 
-u8 title_str_no_file[8] RODATA = "NO FILE";
+u8 title_str_no_file[8] = "NO FILE";
 
-u8 title_str_read_error[12] RODATA = "READ ERROR";
+u8 title_str_read_error[12] = "READ ERROR";
 
-u8 title_str_save_error[12] RODATA = "SAVE ERROR";
+u8 title_str_save_error[12] = "SAVE ERROR";
 
-u8 title_str_exit[8] RODATA = "EXIT";
+u8 title_str_exit[8] = "EXIT";
 
 void title_entries_reset(u32 slot_ids);
 void title_entries_set_rate(s32 divisor);

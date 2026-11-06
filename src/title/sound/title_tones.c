@@ -1,10 +1,5 @@
 /* title_tones: one of title's own original source files (scripts/objmap.py); part of src/title/main.c's unit, included there. */
 
-u32 title_bios_error_msg[7] RODATA = {
-    0x80010000, 0x534F4942, 0x7265563A, 0x6E6F6973, 0x72724520, 0x0D2E726F,
-    0x00000000,
-};
-
 extern u32 title_tone_words[];
 extern TitleRestartEntry title_tone_table[26];
 extern s32 title_seq_delay;
@@ -49,8 +44,6 @@ void title_tones_load(void) {
     } while (i < 26);
     title_seq_delay = title_video_is_pal() == 0 ? 0x708 : 0x5DC;
 }
-
-SVC_HEADER_CONSTS(tones);
 
 extern TitleRestartEntry title_tone_table[26];
 void title_seq_start(void);

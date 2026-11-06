@@ -1348,15 +1348,15 @@ void title_draw_strip_clipped(void *ot, StripVtx *a, StripVtx *b) {
     scratch_top += sizeof(TitleDrTwin);
 }
 
-char str_mission_off[152] RODATA = "MISSION..OFF\000\000\000\000MISSION..ON\000MOVIE....OFF\000\000\000\000MOVIE....ON\000SCREEN...WIDE\000\000\000SCREEN...NORMAL\000KEY......Type-D\000KEY......Type-C\000KEY......Type-B\000KEY......Type-A";
+char str_mission_off[152] = "MISSION..OFF\000\000\000\000MISSION..ON\000MOVIE....OFF\000\000\000\000MOVIE....ON\000SCREEN...WIDE\000\000\000SCREEN...NORMAL\000KEY......Type-D\000KEY......Type-C\000KEY......Type-B\000KEY......Type-A";
 
-u8 str_sound_label[8] RODATA = "SOUND..";
+u8 str_sound_label[8] = "SOUND..";
 
-u8 str_monoral_indent[16] RODATA = "  ....MONORAL";
+u8 str_monoral_indent[16] = "  ....MONORAL";
 
-u8 str_stereo_indent[16] RODATA = "  ....STEREO";
+u8 str_stereo_indent[16] = "  ....STEREO";
 
-u8 str_3d_stereo_indent[80] RODATA = {
+u8 str_3d_stereo_indent[80] = {
     0x20, 0x20, 0x2E, 0x2E, 0x2E, 0x2E, 0x33, 0x44, 0x2D, 0x53, 0x54, 0x45,
     0x52, 0x45, 0x4F, 0x00, 0x4B, 0x45, 0x59, 0x2E, 0x2E, 0x2E, 0x2E, 0x2E,
     0x54, 0x79, 0x70, 0x65, 0x2D, 0x44, 0x00, 0x00, 0x4B, 0x45, 0x59, 0x2E,
@@ -1366,13 +1366,13 @@ u8 str_3d_stereo_indent[80] RODATA = {
     0x54, 0x79, 0x70, 0x65, 0x2D, 0x41, 0x00, 0x00,
 };
 
-u8 str_sound_page_title[12] RODATA = "SOUND...";
+u8 str_sound_page_title[12] = "SOUND...";
 
-u8 str_monoral[8] RODATA = "MONORAL";
+u8 str_monoral[8] = "MONORAL";
 
-u8 str_stereo[8] RODATA = "STEREO";
+u8 str_stereo[8] = "STEREO";
 
-u8 str_3d_stereo[12] RODATA = "3D-STEREO";
+u8 str_3d_stereo[12] = "3D-STEREO";
 
 /* Draws the wave beam inside the clip rect (x, y, w, h): sets the draw area to the rect, draws 16 strips
  * of wave rows rotating around the rect's centre, then restores the draw area. */

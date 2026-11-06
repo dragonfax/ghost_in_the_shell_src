@@ -483,23 +483,17 @@ void frame_end(void) {
     title_draw_otag(title_draw_ctx_ptr->ot_base + 0x1FC);
 }
 
-SVC_HEADER_CONSTS(obj0);
-SVC_HEADER_CONSTS(obj1);
-
 extern void (*slot_1C0)(s32);
 /* Stops with the BIOS version message unless the boot exe's services report version 0x300, then calls
  * service 0x1C0 with 0. */
 void func_800A1818(void) {
-    if (((s32 (*)(void))svc_table_obj1[0])() != 0x300) {
-        printf(bios_version_error_obj1);
+    if (((s32 (*)(void))SVC_TABLE[0])() != 0x300) {
+        printf(BIOS_VERSION_ERROR);
         for (;;) {
         }
     }
     slot_1C0(0);
 }
-
-SVC_HEADER_CONSTS(obj2);
-SVC_HEADER_CONSTS(obj3);
 
 extern void (*slot_1D9)(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4);
 void set_def_draw_env(s32 a0, s32 a1, s32 a2, s32 a3, s32 a4) {

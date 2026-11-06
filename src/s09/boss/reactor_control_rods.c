@@ -12,15 +12,15 @@ s32 func_800C4838(void) {
     return grid_flagged_count;
 }
 
-char str_bos9_tp0_clt[16] RODATA = "bos9_tp0.clt";
+char str_bos9_tp0_clt[16] = "bos9_tp0.clt";
 
-char str_bos9_ch0_vx1[16] RODATA = "bos9_ch0.vx1";
+char str_bos9_ch0_vx1[16] = "bos9_ch0.vx1";
 
-char str_bos9_tp1_xs3[16] RODATA = "bos9_tp1.xs3";
+char str_bos9_tp1_xs3[16] = "bos9_tp1.xs3";
 
-char str_bos9_tp0_xs3[16] RODATA = "bos9_tp0.xs3";
+char str_bos9_tp0_xs3[16] = "bos9_tp0.xs3";
 
-char str_bos9_ch0cb4[16] RODATA = "bos9_ch0.cb4";
+char str_bos9_ch0cb4[16] = "bos9_ch0.cb4";
 
 extern s32 reactor_boss_active_flag;
 extern s32 boss_done_flag;

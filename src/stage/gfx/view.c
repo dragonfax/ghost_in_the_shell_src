@@ -782,13 +782,13 @@ void light_set_dir_from_angles(s32 set, s32 index, s32 yaw, s32 pitch) {
 }
 
 #if STAGE == 13
-char str_ctlt_spr_so3[16] RODATA = "ctlt_spr.so3";
+char str_ctlt_spr_so3[16] = "ctlt_spr.so3";
 
-char str_ctlt_spr_grc[16] RODATA = "ctlt_spr.grc";
+char str_ctlt_spr_grc[16] = "ctlt_spr.grc";
 
-char str_ctlt_spr_clt[16] RODATA = "ctlt_spr.clt";
+char str_ctlt_spr_clt[16] = "ctlt_spr.clt";
 
-char str_ctlt_objcb4[16] RODATA = "ctlt_obj.cb4";
+char str_ctlt_objcb4[16] = "ctlt_obj.cb4";
 #endif
 
 void rec_set_part(s32 rec, u32 field, s32 x, s32 y, s32 z) {

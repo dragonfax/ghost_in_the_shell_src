@@ -561,7 +561,7 @@ s32 title_is_ready_flag(void) {
     return title_ready_flag == 0;
 }
 
-u32 str_ghost_in_the_shell[49] RODATA = {
+u32 str_ghost_in_the_shell[49] = {
     0x67826682, 0x72826E82, 0x40817382, 0x6D826882, 0x73824081, 0x64826782,
     0x72824081, 0x64826782, 0x6B826B82, 0x63824081, 0x73826082, 0x40816082,
     0x8F826D82, 0x00004481, 0x40815282, 0x00000000, 0x40815182, 0x00000000,

@@ -8,9 +8,6 @@ typedef unsigned short u16;
 typedef int s32;
 typedef unsigned int u32;
 
-/* A data definition on a word boundary although its type needs less (a short after a word-padded one). */
-#define WORD_ALIGNED __attribute__((aligned(4)))
-
 #ifndef NULL
 #define NULL ((void *)0)
 #endif
@@ -183,24 +180,10 @@ typedef struct ResourceEntry {
 #include "include_asm.h"
 #include "gte.h" /* GTE macros for every binary (only macros) */
 #include "mips.h" /* CPU instruction idioms (only macros) */
-#include "incbin.h" /* INCBIN, INCBIN_RODATA: data objects from asset files */
+#include "incbin.h" /* INCBIN: data objects from asset files */
 
-/* A zero word after a function: the alignment pad of the next jump table when that table is still asm and sits
- * at 4 mod 8 (C tables get theirs from scripts/jtbl_align.py; docs/FINDINGS.md "Jump tables sit at their original
- * object's 8-byte phase"). fit.py adds it on the line after the function's closing brace. */
-#if !defined(M2CTX) && !defined(PERMUTER)
-#define JTBL_PAD() __asm__(".section .rodata\n    .word 0\n.section .text")
-#else
-#define JTBL_PAD()
-#endif
-
-/* The constants every original object got from the service header: a pointer to the boot exe's service table
- * and the BIOS version-check message, both `static const`, so each object that included the header has its own
- * copy in .rodata (a word and 24 bytes) even when it never uses them; cc1 folds the pointer into the code that
- * reads it (svc_table_x[0] is a load from 0x80010000). Our translation units merge several original objects:
- * write one of these at each object's place in the rodata order (docs/FINDINGS.md "Service header constants"). */
-#define SVC_HEADER_CONSTS(tag) \
-    static void **const svc_table_##tag = (void **)0x80010000; \
-    static const char bios_version_error_##tag[] = "BIOS:Version Error.\r"
+/* The boot exe's service table and the message printed when its BIOS version check fails. */
+#define SVC_TABLE ((void **)0x80010000)
+#define BIOS_VERSION_ERROR "BIOS:Version Error.\r"
 
 #endif

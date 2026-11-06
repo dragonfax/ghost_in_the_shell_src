@@ -1607,8 +1607,6 @@ void title_waves_draw(void) {
     title_seq_enable_set(1);
 }
 
-SVC_HEADER_CONSTS(waves);
-
 extern u8 title_image_a[];
 extern u8 title_image_b[];
 extern u16 title_clut_a[16];
@@ -2421,7 +2419,6 @@ void title_label_index_init(void *ctl, TitleLabel *label, s16 x, s16 y, s32 inde
     label->bar_b_y2 = 0x74;
     label->bar_a_x2 = 0x8C - shade;
 }
-
 
 /* Set up a title label. ctl is reset through task_reset and task_set,
  * which also store the label pointer in ctl. Fixed fields are set, then the
@@ -3403,11 +3400,6 @@ void title_block_update(TitleBlockArg *arg) {
     }
 }
 
-u32 D_800A0A74[8] RODATA = {
-    0x80010000, 0x534F4942, 0x7265563A, 0x6E6F6973, 0x72724520, 0x0D2E726F,
-    0x00000000, 0x00000000,
-};
-
 s32 title_cursor_update(void *obj) {
     TitleCursor *cur = obj;
     s32 limit;
@@ -3897,12 +3889,6 @@ s32 card_result(void) {
     return card_get_ctrl()->result;
 }
 
-u32 D_800A0AC0[14] RODATA = {
-    0x80010000, 0x534F4942, 0x7265563A, 0x6E6F6973, 0x72724520, 0x0D2E726F,
-    0x00000000, 0x80010000, 0x534F4942, 0x7265563A, 0x6E6F6973, 0x72724520,
-    0x0D2E726F, 0x00000000,
-};
-
 extern void *(*slot_094)(s32 a0, s32 a1, const char *pattern, DirEntry *entry);
 extern void *(*slot_086)(DirEntry *entry);
 /* Sums the sizes of all matches for "*" rounded up to 8 KiB blocks and
@@ -4262,11 +4248,6 @@ void title_timer_init(void) {
     title_timer_delay = delay;
     rec->draw_fn = 0;
 }
-
-u32 D_800A0B30[8] RODATA = {
-    0x80010000, 0x534F4942, 0x7265563A, 0x6E6F6973, 0x72724520, 0x0D2E726F,
-    0x00000000, 0x00000000,
-};
 
 void title_ctl_start(void) {
     task_start(0, &title_timer_ctl, 0);

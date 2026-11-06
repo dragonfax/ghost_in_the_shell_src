@@ -1,4 +1,4 @@
-/* s06's own part of src/stage/enemy/giant_robot_fx.c, included there at this place (scripts/objtree.py). */
+/* s06's shot tracing, used by src/stage/enemy/giant_robot_fx.c. */
 
 s32 shot_hit_trace(s32 *from, s32 *to_unused, HitPos16 *to, s32 flags, s32 type, s32 damage) {
     HitPos16 world_hit;

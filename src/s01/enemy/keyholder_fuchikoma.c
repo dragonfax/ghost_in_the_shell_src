@@ -1,6 +1,6 @@
 /* keyholder_fuchikoma: one of s01's own original source files (scripts/objmap.py); part of src/s01/main.c's unit, included there. */
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_arka_tp0_clt[] = "arka_tp0.clt";
 const char file_arka_ch0_clt[] = "arka_ch0.clt";
 const char file_arka_tp0_xs3[] = "arka_tp0.xs3";

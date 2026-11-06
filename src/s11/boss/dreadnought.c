@@ -872,65 +872,65 @@ s32 dreadnought_m11_death(Object *obj) {
     return 1;
 }
 
-char str_arkb_tp0_clt[16] RODATA = "arkb_tp0.clt";
+char str_arkb_tp0_clt[16] = "arkb_tp0.clt";
 
-char str_arkb_ch0_clt[16] RODATA = "arkb_ch0.clt";
+char str_arkb_ch0_clt[16] = "arkb_ch0.clt";
 
-char str_arkb_tp0_xs3[16] RODATA = "arkb_tp0.xs3";
+char str_arkb_tp0_xs3[16] = "arkb_tp0.xs3";
 
-char str_arkb_ch0_vx1[16] RODATA = "arkb_ch0.vx1";
+char str_arkb_ch0_vx1[16] = "arkb_ch0.vx1";
 
-char str_arkb_ch0cb4[16] RODATA = "arkb_ch0.cb4";
+char str_arkb_ch0cb4[16] = "arkb_ch0.cb4";
 
-char str_hou2_tp0_clt[16] RODATA = "hou2_tp0.clt";
+char str_hou2_tp0_clt[16] = "hou2_tp0.clt";
 
-char str_hou2_ch0_clt[16] RODATA = "hou2_ch0.clt";
+char str_hou2_ch0_clt[16] = "hou2_ch0.clt";
 
-char str_hou2_tp0_xs3[16] RODATA = "hou2_tp0.xs3";
+char str_hou2_tp0_xs3[16] = "hou2_tp0.xs3";
 
-char str_hou2_ch0_vx1[16] RODATA = "hou2_ch0.vx1";
+char str_hou2_ch0_vx1[16] = "hou2_ch0.vx1";
 
-char str_hou2_ch0cb4[16] RODATA = "hou2_ch0.cb4";
+char str_hou2_ch0cb4[16] = "hou2_ch0.cb4";
 
-char str_tnk1_tp0_clt[16] RODATA = "TNK1_tp0.clt";
+char str_tnk1_tp0_clt[16] = "TNK1_tp0.clt";
 
-char str_tnk1_ch0_clt[16] RODATA = "TNK1_ch0.clt";
+char str_tnk1_ch0_clt[16] = "TNK1_ch0.clt";
 
-char str_tnk1_ch0_vx1[16] RODATA = "TNK1_ch0.vx1";
+char str_tnk1_ch0_vx1[16] = "TNK1_ch0.vx1";
 
-char str_tnk1_tp0_xs3[16] RODATA = "TNK1_tp0.xs3";
+char str_tnk1_tp0_xs3[16] = "TNK1_tp0.xs3";
 
-char str_tnk1_ch0cb4[16] RODATA = "TNK1_ch0.cb4";
+char str_tnk1_ch0cb4[16] = "TNK1_ch0.cb4";
 
-char str_jira_tp0_clt[16] RODATA = "jira_tp0.clt";
+char str_jira_tp0_clt[16] = "jira_tp0.clt";
 
-char str_jira_ch0_clt[16] RODATA = "jira_ch0.clt";
+char str_jira_ch0_clt[16] = "jira_ch0.clt";
 
-char str_jira_tp0_xs3[16] RODATA = "jira_tp0.xs3";
+char str_jira_tp0_xs3[16] = "jira_tp0.xs3";
 
-char str_jira_ch0_vx1[16] RODATA = "jira_ch0.vx1";
+char str_jira_ch0_vx1[16] = "jira_ch0.vx1";
 
-char str_jira_ch0cb4[16] RODATA = "jira_ch0.cb4";
+char str_jira_ch0cb4[16] = "jira_ch0.cb4";
 
-char str_dorb_ch0cb4[16] RODATA = "dorb_ch0.cb4";
+char str_dorb_ch0cb4[16] = "dorb_ch0.cb4";
 
-char str_bosb_tp1_clt[16] RODATA = "bosb_tp1.clt";
+char str_bosb_tp1_clt[16] = "bosb_tp1.clt";
 
-char str_bosb_tp0_clt[16] RODATA = "bosb_tp0.clt";
+char str_bosb_tp0_clt[16] = "bosb_tp0.clt";
 
-char str_bosb_ch0_clt[16] RODATA = "bosb_ch0.clt";
+char str_bosb_ch0_clt[16] = "bosb_ch0.clt";
 
-char str_bosb_tp1_xs3[16] RODATA = "bosb_tp1.xs3";
+char str_bosb_tp1_xs3[16] = "bosb_tp1.xs3";
 
-char str_bosb_tp0_xs3[16] RODATA = "bosb_tp0.xs3";
+char str_bosb_tp0_xs3[16] = "bosb_tp0.xs3";
 
-char str_bosb_ch1_vx1[16] RODATA = "bosb_ch1.vx1";
+char str_bosb_ch1_vx1[16] = "bosb_ch1.vx1";
 
-char str_bosb_ch0_vx1[16] RODATA = "bosb_ch0.vx1";
+char str_bosb_ch0_vx1[16] = "bosb_ch0.vx1";
 
-char str_bosb_ch1cb4[16] RODATA = "bosb_ch1.cb4";
+char str_bosb_ch1cb4[16] = "bosb_ch1.cb4";
 
-char str_bosb_ch0cb4[16] RODATA = "bosb_ch0.cb4";
+char str_bosb_ch0cb4[16] = "bosb_ch0.cb4";
 
 extern s16 dreadnought_m11_boss_script[];
 extern u8 D_8011A6EC[];

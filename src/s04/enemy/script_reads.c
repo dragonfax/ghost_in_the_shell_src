@@ -1,6 +1,6 @@
 /* script_reads: one of s04's own original source files (scripts/objmap.py); part of src/s04/main.c's unit, included there. */
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_flip_tp0_clt[] = "flip_tp0.clt";
 const char file_flip_ch0_clt[] = "flip_ch0.clt";
 const char file_flip_tp0_xs3[] = "flip_tp0.xs3";

@@ -14,14 +14,6 @@
         "    .set at\n" \
     )
 #endif
-#ifndef INCLUDE_RODATA
-#define INCLUDE_RODATA(FOLDER, NAME) \
-    __asm__( \
-        ".section .rodata\n" \
-        "    .include \"" FOLDER "/" #NAME ".s\"\n" \
-        ".section .text" \
-    )
-#endif
 
 #if INCLUDE_ASM_USE_MACRO_INC
 __asm__(".include \"../include/macro.inc\"\n");
@@ -33,9 +25,6 @@ __asm__(".include \"../include/labels.inc\"\n");
 
 #ifndef INCLUDE_ASM
 #define INCLUDE_ASM(FOLDER, NAME)
-#endif
-#ifndef INCLUDE_RODATA
-#define INCLUDE_RODATA(FOLDER, NAME)
 #endif
 
 #endif /* !defined(M2CTX) && !defined(PERMUTER) */

@@ -7,6 +7,7 @@
 #include "gte.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
@@ -319,6 +320,7 @@ void script_branch_on_flag(Object *obj) {
 #include "boss/bomb_mech.c"
 
 #include "../stage/enemy/giant_robot_fx.c"
+#include "enemy/giant_robot_fx_part2.c"
 #include "core/stage.c"
 #include "../stage/combat/shots.c"
 #include "core/stage_timers.c"
@@ -345,45 +347,45 @@ extern RecTemplate D_801177C8, D_801177E0, fx_owner_template_a, D_8011873C;
 extern RecTemplate D_801177C8, D_801177E0, D_80118724, fx_owner_template_b;
 #include "../stage/eng_fn_800c571c.c"
 
-char str_hou2_tp0_clt[16] RODATA = "hou2_tp0.clt";
+char str_hou2_tp0_clt[16] = "hou2_tp0.clt";
 
-char str_hou2_ch0_clt[16] RODATA = "hou2_ch0.clt";
+char str_hou2_ch0_clt[16] = "hou2_ch0.clt";
 
-char str_hou2_tp0_xs3[16] RODATA = "hou2_tp0.xs3";
+char str_hou2_tp0_xs3[16] = "hou2_tp0.xs3";
 
-char str_hou2_ch0_vx1[16] RODATA = "hou2_ch0.vx1";
+char str_hou2_ch0_vx1[16] = "hou2_ch0.vx1";
 
-char str_hou2_ch0cb4[16] RODATA = "hou2_ch0.cb4";
+char str_hou2_ch0cb4[16] = "hou2_ch0.cb4";
 
-char str_mth2_tp0_clt[16] RODATA = "mth2_tp0.clt";
+char str_mth2_tp0_clt[16] = "mth2_tp0.clt";
 
-char str_mth2_ch0_clt[16] RODATA = "mth2_ch0.clt";
+char str_mth2_ch0_clt[16] = "mth2_ch0.clt";
 
-char str_mth2_tp0_xs3[16] RODATA = "mth2_tp0.xs3";
+char str_mth2_tp0_xs3[16] = "mth2_tp0.xs3";
 
-char str_mth2_ch0_vx1[16] RODATA = "mth2_ch0.vx1";
+char str_mth2_ch0_vx1[16] = "mth2_ch0.vx1";
 
-char str_mth2_ch0cb4[16] RODATA = "mth2_ch0.cb4";
+char str_mth2_ch0cb4[16] = "mth2_ch0.cb4";
 
-char str_bos7_tp1_clt[16] RODATA = "bos7_tp1.clt";
+char str_bos7_tp1_clt[16] = "bos7_tp1.clt";
 
-char str_bos7_tp0_clt[16] RODATA = "bos7_tp0.clt";
+char str_bos7_tp0_clt[16] = "bos7_tp0.clt";
 
-char str_bos7_ch0_clt[16] RODATA = "bos7_ch0.clt";
+char str_bos7_ch0_clt[16] = "bos7_ch0.clt";
 
-char str_bos7_tp1_xs3[16] RODATA = "bos7_tp1.xs3";
+char str_bos7_tp1_xs3[16] = "bos7_tp1.xs3";
 
-char str_bos7_tp0_xs3[16] RODATA = "bos7_tp0.xs3";
+char str_bos7_tp0_xs3[16] = "bos7_tp0.xs3";
 
-char str_bos7_ch2_vx1[16] RODATA = "bos7_ch2.vx1";
+char str_bos7_ch2_vx1[16] = "bos7_ch2.vx1";
 
-char str_bos7_ch1_vx1[16] RODATA = "bos7_ch1.vx1";
+char str_bos7_ch1_vx1[16] = "bos7_ch1.vx1";
 
-char str_bos7_ch0_vx1[16] RODATA = "bos7_ch0.vx1";
+char str_bos7_ch0_vx1[16] = "bos7_ch0.vx1";
 
-char str_bos7_ch1cb4[16] RODATA = "bos7_ch1.cb4";
+char str_bos7_ch1cb4[16] = "bos7_ch1.cb4";
 
-char str_bos7_ch0cb4[16] RODATA = "bos7_ch0.cb4";
+char str_bos7_ch0cb4[16] = "bos7_ch0.cb4";
 
 #include "../stage/eng_fn_800c4368.c"
 

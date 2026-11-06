@@ -1,6 +1,6 @@
 /* stationary_rocket_launcher: one of s07's own original source files (scripts/objmap.py); part of src/s07/main.c's unit, included there. */
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_kitt_tp0_clt[] = "kitt_tp0.clt";
 const char file_kitt_ch0_clt[] = "kitt_ch0.clt";
 const char file_kitt_tp0_xs3[] = "kitt_tp0.xs3";

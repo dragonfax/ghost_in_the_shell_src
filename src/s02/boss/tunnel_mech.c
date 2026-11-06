@@ -826,87 +826,87 @@ void enemy_shot_pick_mode(Object *obj) {
     }
 }
 
-char str_mfir_tp0_clt[16] RODATA = "mfir_tp0.clt";
+char str_mfir_tp0_clt[16] = "mfir_tp0.clt";
 
-char str_mfir_ch0_clt[16] RODATA = "mfir_ch0.clt";
+char str_mfir_ch0_clt[16] = "mfir_ch0.clt";
 
-char str_mfir_tp0_xs3[16] RODATA = "mfir_tp0.xs3";
+char str_mfir_tp0_xs3[16] = "mfir_tp0.xs3";
 
-char str_mfir_ch0_vx1[16] RODATA = "mfir_ch0.vx1";
+char str_mfir_ch0_vx1[16] = "mfir_ch0.vx1";
 
-char str_mfir_ch0cb4[16] RODATA = "mfir_ch0.cb4";
+char str_mfir_ch0cb4[16] = "mfir_ch0.cb4";
 
-char str_sel1_tp0_clt[16] RODATA = "sel1_tp0.clt";
+char str_sel1_tp0_clt[16] = "sel1_tp0.clt";
 
-char str_sel1_ch0_clt[16] RODATA = "sel1_ch0.clt";
+char str_sel1_ch0_clt[16] = "sel1_ch0.clt";
 
-char str_sel1_tp0_xs3[16] RODATA = "sel1_tp0.xs3";
+char str_sel1_tp0_xs3[16] = "sel1_tp0.xs3";
 
-char str_sel1_ch0_vx1[16] RODATA = "sel1_ch0.vx1";
+char str_sel1_ch0_vx1[16] = "sel1_ch0.vx1";
 
-char str_sel1_ch0cb4[16] RODATA = "sel1_ch0.cb4";
+char str_sel1_ch0cb4[16] = "sel1_ch0.cb4";
 
-char str_hou2_tp0_clt[16] RODATA = "hou2_tp0.clt";
+char str_hou2_tp0_clt[16] = "hou2_tp0.clt";
 
-char str_hou2_ch0_clt[16] RODATA = "hou2_ch0.clt";
+char str_hou2_ch0_clt[16] = "hou2_ch0.clt";
 
-char str_hou2_tp0_xs3[16] RODATA = "hou2_tp0.xs3";
+char str_hou2_tp0_xs3[16] = "hou2_tp0.xs3";
 
-char str_hou2_ch0_vx1[16] RODATA = "hou2_ch0.vx1";
+char str_hou2_ch0_vx1[16] = "hou2_ch0.vx1";
 
-char str_hou2_ch0cb4[16] RODATA = "hou2_ch0.cb4";
+char str_hou2_ch0cb4[16] = "hou2_ch0.cb4";
 
-char str_kira_tp0_clt[16] RODATA = "kira_tp0.clt";
+char str_kira_tp0_clt[16] = "kira_tp0.clt";
 
-char str_kira_ch0_clt[16] RODATA = "kira_ch0.clt";
+char str_kira_ch0_clt[16] = "kira_ch0.clt";
 
-char str_kira_tp0_xs3[16] RODATA = "kira_tp0.xs3";
+char str_kira_tp0_xs3[16] = "kira_tp0.xs3";
 
-char str_kira_ch0_vx1[16] RODATA = "kira_ch0.vx1";
+char str_kira_ch0_vx1[16] = "kira_ch0.vx1";
 
-char str_kira_ch0cb4[16] RODATA = "kira_ch0.cb4";
+char str_kira_ch0cb4[16] = "kira_ch0.cb4";
 
-char str_jira_tp0_clt[16] RODATA = "jira_tp0.clt";
+char str_jira_tp0_clt[16] = "jira_tp0.clt";
 
-char str_jira_ch0_clt[16] RODATA = "jira_ch0.clt";
+char str_jira_ch0_clt[16] = "jira_ch0.clt";
 
-char str_jira_tp0_xs3[16] RODATA = "jira_tp0.xs3";
+char str_jira_tp0_xs3[16] = "jira_tp0.xs3";
 
-char str_jira_ch0_vx1[16] RODATA = "jira_ch0.vx1";
+char str_jira_ch0_vx1[16] = "jira_ch0.vx1";
 
-char str_jira_ch0cb4[16] RODATA = "jira_ch0.cb4";
+char str_jira_ch0cb4[16] = "jira_ch0.cb4";
 
-char str_bos2_tp1_clt[16] RODATA = "bos2_tp1.clt";
+char str_bos2_tp1_clt[16] = "bos2_tp1.clt";
 
-char str_bos2_tp0_clt[16] RODATA = "bos2_tp0.clt";
+char str_bos2_tp0_clt[16] = "bos2_tp0.clt";
 
-char str_bos2_ch3_clt[16] RODATA = "bos2_ch3.clt";
+char str_bos2_ch3_clt[16] = "bos2_ch3.clt";
 
-char str_bos2_ch2_clt[16] RODATA = "bos2_ch2.clt";
+char str_bos2_ch2_clt[16] = "bos2_ch2.clt";
 
-char str_bos2_ch1_clt[16] RODATA = "bos2_ch1.clt";
+char str_bos2_ch1_clt[16] = "bos2_ch1.clt";
 
-char str_bos2_ch0_clt[16] RODATA = "bos2_ch0.clt";
+char str_bos2_ch0_clt[16] = "bos2_ch0.clt";
 
-char str_bos2_tp1_xs3[16] RODATA = "bos2_tp1.xs3";
+char str_bos2_tp1_xs3[16] = "bos2_tp1.xs3";
 
-char str_bos2_tp0_xs3[16] RODATA = "bos2_tp0.xs3";
+char str_bos2_tp0_xs3[16] = "bos2_tp0.xs3";
 
-char str_bos2_ch3_vx1[16] RODATA = "bos2_ch3.vx1";
+char str_bos2_ch3_vx1[16] = "bos2_ch3.vx1";
 
-char str_bos2_ch2_vx1[16] RODATA = "bos2_ch2.vx1";
+char str_bos2_ch2_vx1[16] = "bos2_ch2.vx1";
 
-char str_bos2_ch1_vx1[16] RODATA = "bos2_ch1.vx1";
+char str_bos2_ch1_vx1[16] = "bos2_ch1.vx1";
 
-char str_bos2_ch0_vx1[16] RODATA = "bos2_ch0.vx1";
+char str_bos2_ch0_vx1[16] = "bos2_ch0.vx1";
 
-char str_bos2_ch3cb4[16] RODATA = "bos2_ch3.cb4";
+char str_bos2_ch3cb4[16] = "bos2_ch3.cb4";
 
-char str_bos2_ch2cb4[16] RODATA = "bos2_ch2.cb4";
+char str_bos2_ch2cb4[16] = "bos2_ch2.cb4";
 
-char str_bos2_ch1cb4[16] RODATA = "bos2_ch1.cb4";
+char str_bos2_ch1cb4[16] = "bos2_ch1.cb4";
 
-char str_bos2_ch0cb4[16] RODATA = "bos2_ch0.cb4";
+char str_bos2_ch0cb4[16] = "bos2_ch0.cb4";
 
 void tunnel_mech_state_update(Object *obj) {
     s32 state;

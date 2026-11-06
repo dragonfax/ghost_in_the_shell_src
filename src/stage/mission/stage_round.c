@@ -188,55 +188,55 @@ s32 area_part_available(void) {
     return p != NULL;
 }
 
-char str_tst_spr_so3[12] RODATA = "tst_spr.so3";
+char str_tst_spr_so3[12] = "tst_spr.so3";
 
-char str_tst_spr_grc[12] RODATA = "tst_spr.grc";
+char str_tst_spr_grc[12] = "tst_spr.grc";
 
-char str_tst_spr_clt[12] RODATA = "tst_spr.clt";
+char str_tst_spr_clt[12] = "tst_spr.clt";
 
-char str_msgspr_so3[12] RODATA = "msgspr.so3";
+char str_msgspr_so3[12] = "msgspr.so3";
 
-char str_msgspr_grc[12] RODATA = "msgspr.grc";
+char str_msgspr_grc[12] = "msgspr.grc";
 
-char str_msgspr_clt[12] RODATA = "msgspr.clt";
+char str_msgspr_clt[12] = "msgspr.clt";
 
-char str_tg_disp_so3[12] RODATA = "tg_disp.so3";
+char str_tg_disp_so3[12] = "tg_disp.so3";
 
-char str_tg_disp_grc[12] RODATA = "tg_disp.grc";
+char str_tg_disp_grc[12] = "tg_disp.grc";
 
-char str_tg_disp_clt[12] RODATA = "tg_disp.clt";
+char str_tg_disp_clt[12] = "tg_disp.clt";
 
-char str_fc_tp0_clt[12] RODATA = "fc_tp0.clt";
+char str_fc_tp0_clt[12] = "fc_tp0.clt";
 
-char str_fc_obj_vx1[12] RODATA = "fc_obj.vx1";
+char str_fc_obj_vx1[12] = "fc_obj.vx1";
 
-char str_fc_tp0_xs3[12] RODATA = "fc_tp0.xs3";
+char str_fc_tp0_xs3[12] = "fc_tp0.xs3";
 
-char str_fc_objcb4[12] RODATA = "fc_obj.cb4";
+char str_fc_objcb4[12] = "fc_obj.cb4";
 
-char str_sdw_tp0_clt[12] RODATA = "sdw_tp0.clt";
+char str_sdw_tp0_clt[12] = "sdw_tp0.clt";
 
-char str_sdw_obj_vx1[12] RODATA = "sdw_obj.vx1";
+char str_sdw_obj_vx1[12] = "sdw_obj.vx1";
 
-char str_sdw_tp0_xs3[12] RODATA = "sdw_tp0.xs3";
+char str_sdw_tp0_xs3[12] = "sdw_tp0.xs3";
 
-char str_tst_tp1_clt[12] RODATA = "tst_tp1.clt";
+char str_tst_tp1_clt[12] = "tst_tp1.clt";
 
-char str_tst_tp0_clt[12] RODATA = "tst_tp0.clt";
+char str_tst_tp0_clt[12] = "tst_tp0.clt";
 
-char str_tst_tp2_xs3[12] RODATA = "tst_tp2.xs3";
+char str_tst_tp2_xs3[12] = "tst_tp2.xs3";
 
-char str_tst_tp1_xs3[12] RODATA = "tst_tp1.xs3";
+char str_tst_tp1_xs3[12] = "tst_tp1.xs3";
 
-char str_tst_tp0_xs3[12] RODATA = "tst_tp0.xs3";
+char str_tst_tp0_xs3[12] = "tst_tp0.xs3";
 
-char str_tst_obj2_vx1[16] RODATA = "tst_obj2.vx1";
+char str_tst_obj2_vx1[16] = "tst_obj2.vx1";
 
-char str_tst_obj_vx1[12] RODATA = "tst_obj.vx1";
+char str_tst_obj_vx1[12] = "tst_obj.vx1";
 
-char str_main_data[16] RODATA = "..\\main\\data\\";
+char str_main_data[16] = "..\\main\\data\\";
 
-char str_com_dat_fac[12] RODATA = "com_dat.fac";
+char str_com_dat_fac[12] = "com_dat.fac";
 
 void stage_round_run(void) {
     /* state[0] is the current slot, state[1..8] the resume labels, state[9..16] the frame counters */

@@ -53,8 +53,6 @@ loop_1:
     }
 }
 
-SVC_HEADER_CONSTS(startup);
-
 extern s32 (*slot_read_file)(u8 *name, void *dest, s32 mode);
 extern s32 (*slot_0A0)(s32 mode, void *dest, s32 arg);
 extern void (*slot_0A2)(s32 mode);
@@ -73,8 +71,8 @@ void startup_main(void) {
     u8 *base;
 
     startup_noop();
-    if (((s32 (*)(void))svc_table_startup[0])() != 0x300) {
-        printf(bios_version_error_startup);
+    if (((s32 (*)(void))SVC_TABLE[0])() != 0x300) {
+        printf(BIOS_VERSION_ERROR);
         while (1) {}
     }
     base = func_800E871C();

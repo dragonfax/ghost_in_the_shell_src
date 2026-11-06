@@ -103,33 +103,33 @@ void flow_speed_update(Object *obj) {
     }
 }
 
-char str_bos6_tp2_clt[16] RODATA = "bos6_tp2.clt";
+char str_bos6_tp2_clt[16] = "bos6_tp2.clt";
 
-char str_bos6_tp1_clt[16] RODATA = "bos6_tp1.clt";
+char str_bos6_tp1_clt[16] = "bos6_tp1.clt";
 
-char str_bos6_tp0_clt[16] RODATA = "bos6_tp0.clt";
+char str_bos6_tp0_clt[16] = "bos6_tp0.clt";
 
-char str_bos6_ch0_clt[16] RODATA = "bos6_ch0.clt";
+char str_bos6_ch0_clt[16] = "bos6_ch0.clt";
 
-char str_bos6_tp2_xs3[16] RODATA = "bos6_tp2.xs3";
+char str_bos6_tp2_xs3[16] = "bos6_tp2.xs3";
 
-char str_bos6_tp0_xs3[16] RODATA = "bos6_tp0.xs3";
+char str_bos6_tp0_xs3[16] = "bos6_tp0.xs3";
 
-char str_bos6_tp1_xs3[16] RODATA = "bos6_tp1.xs3";
+char str_bos6_tp1_xs3[16] = "bos6_tp1.xs3";
 
-char str_bos6_ch3_vx1[16] RODATA = "bos6_ch3.vx1";
+char str_bos6_ch3_vx1[16] = "bos6_ch3.vx1";
 
-char str_bos6_ch2_vx1[16] RODATA = "bos6_ch2.vx1";
+char str_bos6_ch2_vx1[16] = "bos6_ch2.vx1";
 
-char str_bos6_ch1_vx1[16] RODATA = "bos6_ch1.vx1";
+char str_bos6_ch1_vx1[16] = "bos6_ch1.vx1";
 
-char str_bos6_ch0_vx1[16] RODATA = "bos6_ch0.vx1";
+char str_bos6_ch0_vx1[16] = "bos6_ch0.vx1";
 
-char str_bos6_ch2cb4[16] RODATA = "bos6_ch2.cb4";
+char str_bos6_ch2cb4[16] = "bos6_ch2.cb4";
 
-char str_bos6_ch1cb4[16] RODATA = "bos6_ch1.cb4";
+char str_bos6_ch1cb4[16] = "bos6_ch1.cb4";
 
-char str_bos6_ch0cb4[16] RODATA = "bos6_ch0.cb4";
+char str_bos6_ch0cb4[16] = "bos6_ch0.cb4";
 
 void mech_approach_speed(Object *obj) {
     s32 *player = player_position();

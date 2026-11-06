@@ -1,6 +1,6 @@
 /* motorcycle: one of s06's own original source files (scripts/objmap.py); part of src/s06/main.c's unit, included there. */
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_bic3_tp2_clt[] = "bic3_tp2.clt";
 const char file_bic3_tp1_clt[] = "bic3_tp1.clt";
 const char file_bic3_tp0_clt[] = "bic3_tp0.clt";

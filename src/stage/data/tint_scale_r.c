@@ -6,7 +6,7 @@ s16 tint_scale_g = 0x1000;
 
 s16 tint_scale_b = 0x1000;
 
-s16 tint_add_r WORD_ALIGNED = 0;
+s16 tint_add_r = 0;
 
 s16 tint_add_g = 0;
 

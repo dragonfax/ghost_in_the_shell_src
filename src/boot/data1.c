@@ -1380,9 +1380,9 @@ BootPair boot_pairs[384] = {0};
 
 u16 vab_prog_entries = 0;
 
-u16 vab_tone_entries WORD_ALIGNED = 0;
+u16 vab_tone_entries = 0;
 
-u16 boot_pair_count WORD_ALIGNED = 0;
+u16 boot_pair_count = 0;
 
 u8 rec_count_lo[4] = {
     0x00, 0x00, 0x00, 0x00,

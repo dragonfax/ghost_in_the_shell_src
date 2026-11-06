@@ -2618,7 +2618,7 @@ s16 burst_vec_a_z = 0xF2C;
 
 s16 burst_vec_a_y = 0x3EA;
 
-s16 burst_vec_b_x WORD_ALIGNED = 0x33B;
+s16 burst_vec_b_x = 0x33B;
 
 s16 burst_vec_b_z = 0xF40;
 
@@ -4707,7 +4707,7 @@ s16 shot_aim_a_yaw = 0;
 
 s16 shot_aim_a_roll = 0;
 
-s16 shot_aim_b_pitch WORD_ALIGNED = 0;
+s16 shot_aim_b_pitch = 0;
 
 s16 shot_aim_b_yaw = 0;
 

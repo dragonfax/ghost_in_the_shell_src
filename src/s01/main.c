@@ -6,6 +6,7 @@
 #include "sounds.h"
 
 #include "../stage/sys/svc.c"
+#include "sys/svc_part1.c"
 
 #include "../stage/sys/start.c"
 #include "../stage/sys/file_heap.c"
@@ -50,6 +51,7 @@
 #include "../stage/enemy/giant_robot.c"
 
 #include "../stage/enemy/giant_robot_fx.c"
+#include "enemy/giant_robot_fx_part2.c"
 #include "enemy/giant_robot_systems.c"
 
 #include "../stage/enemy/hit_reaction.c"

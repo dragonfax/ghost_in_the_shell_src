@@ -322,13 +322,13 @@ s32 cam_transition_spawn(void) {
     return 1;
 }
 
-char str_waycrnt_clt[12] RODATA = "waycrnt.clt";
+char str_waycrnt_clt[12] = "waycrnt.clt";
 
-char str_waycrnp_clt[12] RODATA = "waycrnp.clt";
+char str_waycrnp_clt[12] = "waycrnp.clt";
 
-char str_waycrnt_xs3[12] RODATA = "waycrnt.xs3";
+char str_waycrnt_xs3[12] = "waycrnt.xs3";
 
-char str_waycrnp_vx1[12] RODATA = "waycrnp.vx1";
+char str_waycrnp_vx1[12] = "waycrnp.vx1";
 
 extern s32 player_xyz_y;
 static const char msg_junction_ahead[] = "#1A junction ahead.\xA1";

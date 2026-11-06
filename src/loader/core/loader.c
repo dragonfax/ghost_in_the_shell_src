@@ -96,9 +96,8 @@ void loader_play_event_movie(s32 first) {
 }
 
 extern u8 svc_table[];
-u32 D_800E0000 RODATA = (u32)svc_table;
 
-char loader_bios_error_msg[24] RODATA = "BIOS:Version Error.\r";
+char loader_bios_error_msg[24] = "BIOS:Version Error.\r";
 extern char loader_bios_error_msg[];
 
 extern u8 *vab_file_names[24];
@@ -186,9 +185,6 @@ void loader_run_stage(void) {
         slot_102(0);
     }
 }
-
-SVC_HEADER_CONSTS(obj1);
-SVC_HEADER_CONSTS(obj2);
 
 extern s32 loader_finished_flag;
 

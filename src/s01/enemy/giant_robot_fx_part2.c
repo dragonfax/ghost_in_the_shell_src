@@ -1,4 +1,4 @@
-/* s01's own part of src/stage/enemy/giant_robot_fx.c, included there at this place (scripts/objtree.py). */
+/* s01's shot tracing, used by src/stage/enemy/giant_robot_fx.c. */
 
 s32 trace_shot_segment(VECTOR *from, VECTOR *to, VECTOR *hit, s32 flags, s32 type, s32 damage) {
     VECTOR trace;

@@ -666,7 +666,7 @@ void *card_next_entry(void *info) {
     return nextfile(info);
 }
 
-char D_80018000[4] RODATA = "*";
+char D_80018000[4] = "*";
 
 /* The empty file name card_init appends: an array, not a "" literal, which cc1 would share with the later
  * one (the original's objects each had their own). */
@@ -5374,7 +5374,7 @@ s32 sector_cache_get(u8 *pos) {
     return sector_cache_fetch(1, pos, 0);
 }
 
-char cdfs_msg_file_not_found[20] RODATA = "File Not Found:%s\n";
+char cdfs_msg_file_not_found[20] = "File Not Found:%s\n";
 
 s32 cdfs_read(s32 arg0, s32 arg1, s32 arg2);
 void unpex_decompress(void *src, s32 dst);

@@ -283,29 +283,29 @@ void script_op_meter_mode(ScriptMeterCtx *self) {
     self->flag_17A = idle_b;
 }
 
-char str_bos5_tp0_clt[16] RODATA = "bos5_tp0.clt";
+char str_bos5_tp0_clt[16] = "bos5_tp0.clt";
 
-char str_bos5_ch0_clt[16] RODATA = "bos5_ch0.clt";
+char str_bos5_ch0_clt[16] = "bos5_ch0.clt";
 
-char str_bos5_ch3_vx1[16] RODATA = "bos5_ch3.vx1";
+char str_bos5_ch3_vx1[16] = "bos5_ch3.vx1";
 
-char str_bos5_ch2_vx1[16] RODATA = "bos5_ch2.vx1";
+char str_bos5_ch2_vx1[16] = "bos5_ch2.vx1";
 
-char str_bos5_ch1_vx1[16] RODATA = "bos5_ch1.vx1";
+char str_bos5_ch1_vx1[16] = "bos5_ch1.vx1";
 
-char str_bos5_ch0_vx1[16] RODATA = "bos5_ch0.vx1";
+char str_bos5_ch0_vx1[16] = "bos5_ch0.vx1";
 
-char str_bos5_tp1_xs3[16] RODATA = "bos5_tp1.xs3";
+char str_bos5_tp1_xs3[16] = "bos5_tp1.xs3";
 
-char str_bos5_tp0_xs3[16] RODATA = "bos5_tp0.xs3";
+char str_bos5_tp0_xs3[16] = "bos5_tp0.xs3";
 
-char str_bos5_ch3cb4[16] RODATA = "bos5_ch3.cb4";
+char str_bos5_ch3cb4[16] = "bos5_ch3.cb4";
 
-char str_bos5_ch2cb4[16] RODATA = "bos5_ch2.cb4";
+char str_bos5_ch2cb4[16] = "bos5_ch2.cb4";
 
-char str_bos5_ch1cb4[16] RODATA = "bos5_ch1.cb4";
+char str_bos5_ch1cb4[16] = "bos5_ch1.cb4";
 
-char str_bos5_ch0cb4[16] RODATA = "bos5_ch0.cb4";
+char str_bos5_ch0cb4[16] = "bos5_ch0.cb4";
 
 s32 zone_contains_pos(s32 key, VECTOR *pos, s32 range);
 /* Script op: reads a key and a table index; zone_contains_pos looks the key up with the vector from

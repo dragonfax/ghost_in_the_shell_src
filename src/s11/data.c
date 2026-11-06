@@ -2002,7 +2002,7 @@ u32 D_80120074[5] = {0};
 
 #include "../stage/data/tint_scale_r.c"
 
-s16 video_mode_id WORD_ALIGNED = 0;
+s16 video_mode_id = 0;
 
 #include "../stage/data/debug_cam_speed_table.c"
 
@@ -2038,7 +2038,7 @@ s32 spark_blend_base = 0;
 
 s16 dreadnought_cycle = 0;
 
-s16 dreadnought_m11_sound_flag WORD_ALIGNED = 0;
+s16 dreadnought_m11_sound_flag = 0;
 
 #include "../stage/data/giant_robot_on_flag.c"
 

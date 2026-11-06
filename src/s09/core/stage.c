@@ -1,6 +1,6 @@
 /* stage: one of s09's own original source files (scripts/objmap.py); part of src/s09/main.c's unit, included there. */
 
-/* The stage's model and message files: data tables point to them by address. In the original they are their own object, after the engine's file_write_named. */
+/* The stage's model and message files: data tables point to them by address. */
 const char file_gt3_mobj_cb4[] = "gt3_mobj.cb4";
 
 /* The player's model block (engine loader step 1) gives a {first, last} s16 pair at its word 5. */

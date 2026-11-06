@@ -31,7 +31,7 @@ void debug_name_store(u8 *name) {
     debug_name_copy(name);
 }
 
-char fmt_file_not_found[20] RODATA = "File Not Found: %s\n";
+char fmt_file_not_found[20] = "File Not Found: %s\n";
 
 /* Opens a file by name, retrying while it is not found. */
 s32 file_seek_retry(char *name) {
@@ -100,7 +100,7 @@ void *file_load_to_heap(const char *name) {
     return dest;
 }
 
-char fmt_read_error[16] RODATA = "Read Error: %s\n";
+char fmt_read_error[16] = "Read Error: %s\n";
 
 /* Runs file_write_stub on `name` and `dest`; prints a write error with the name when it fails. (The file names
  * after its string in the rodata are the stage's: each stage's main.c defines them after this file.) */

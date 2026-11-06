@@ -24,7 +24,6 @@ void title_track_update(TitleCtl *ctl) {
     }
 }
 
-
 void title_line_add(s32 ot_index, s32 x0, s32 y0, s32 x1, s32 y1, s32 colour) {
     TitleDrawCtx *ctx = title_draw_ctx_ptr;
     u8 *entry;
@@ -1119,7 +1118,7 @@ void func_800AD56C(s32 arg0) {
     D_80167D50 = arg0;
 }
 
-char D_800A0688[20] RODATA = "5th\0004th\0003rd\0002nd\0001st";
+char D_800A0688[20] = "5th\0004th\0003rd\0002nd\0001st";
 
 /* Maps a glyph index to its ASCII code: 0-25 -> 'A'-'Z', 26 -> '.',
  * 27-36 -> '0'-'9'. Any other index gives 0. */
@@ -1876,11 +1875,6 @@ void pad3d_right(s16 value) {
     }
 }
 
-u32 D_800A0750[8] RODATA = {
-    0x80010000, 0x534F4942, 0x7265563A, 0x6E6F6973, 0x72724520, 0x0D2E726F,
-    0x00000000, 0x00000000,
-};
-
 void pad3d_start(s16 value) {
     pad3d_phase = 3;
     pad3d_state->duration = value;
@@ -1956,7 +1950,7 @@ void pad3d_anim_update(TitleTaskNode *task) {
     }
 }
 
-char keypage_callout_text[108] RODATA = "NO USE\000\000USE GRENADE\000SLIDE TO THE RIGHT\000\000SLIDE TO THE LEFT\000\000\000SHOOT\000\000\000JUMP\000\000\000\000TYPE-D\000\000TYPE-C\000\000TYPE-B\000\000TYPE-A\000";
+char keypage_callout_text[108] = "NO USE\000\000USE GRENADE\000SLIDE TO THE RIGHT\000\000SLIDE TO THE LEFT\000\000\000SHOOT\000\000\000JUMP\000\000\000\000TYPE-D\000\000TYPE-C\000\000TYPE-B\000\000TYPE-A\000";
 
 extern s32 title_tile_offset_x_table[];
 extern s32 title_tile_offset_y_table[];
@@ -2075,8 +2069,6 @@ void title_menu_draw(TitleMenuDrawObj *obj) {
     title_draw_text(0x78, 0x42, title_menu_item_name_table[*row++], 2, sel);
     title_draw_text(0xD2, 0x4E, title_menu_item_name_table[*row], 2, sel);
 }
-
-SVC_HEADER_CONSTS(menu);
 
 s32 title_video_is_pal(void);
 extern s32 panel_task;

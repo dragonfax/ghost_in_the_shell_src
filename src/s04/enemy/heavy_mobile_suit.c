@@ -569,19 +569,19 @@ void spark_emit_obj_pair(Object *obj) {
     spark_add_rot_first_u(&spark_list, 0, 0x800, 0, pos[0], pos[1], pos[2], id + 2, 0);
 }
 
-char str_land_tp1_clt[16] RODATA = "land_tp1.clt";
+char str_land_tp1_clt[16] = "land_tp1.clt";
 
-char str_land_tp0_clt[16] RODATA = "land_tp0.clt";
+char str_land_tp0_clt[16] = "land_tp0.clt";
 
-char str_land_ch0_clt[16] RODATA = "land_ch0.clt";
+char str_land_ch0_clt[16] = "land_ch0.clt";
 
-char str_land_tp1_xs3[16] RODATA = "land_tp1.xs3";
+char str_land_tp1_xs3[16] = "land_tp1.xs3";
 
-char str_land_tp0_xs3[16] RODATA = "land_tp0.xs3";
+char str_land_tp0_xs3[16] = "land_tp0.xs3";
 
-char str_land_ch0_vx1[16] RODATA = "land_ch0.vx1";
+char str_land_ch0_vx1[16] = "land_ch0.vx1";
 
-char str_land_ch0cb4[16] RODATA = "land_ch0.cb4";
+char str_land_ch0cb4[16] = "land_ch0.cb4";
 
 void muzzle_shot_spawn(Object *obj, s32 *pos, u16 *rot, s32 shot_param) {
     s32 unused[6];

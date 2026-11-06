@@ -3576,7 +3576,7 @@ u32 D_8011CE28[5] = {0};
 
 #include "../stage/data/tint_scale_r.c"
 
-s16 video_mode_id WORD_ALIGNED = 0;
+s16 video_mode_id = 0;
 
 #include "../stage/data/debug_cam_speed_table.c"
 
