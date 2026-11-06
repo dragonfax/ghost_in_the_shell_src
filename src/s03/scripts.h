@@ -1,0 +1,291 @@
+/* s03: names for the script streams' table indices and op numbers, made by scripts/script_c.py
+   from the stage's script data (FINDINGS "Script system"). */
+
+#ifndef SCRIPTS_H
+#define SCRIPTS_H
+
+/* rocket_fuchikoma_data: animation streams */
+enum {
+    ROCKET_FUCHIKOMA_ANIM_IDLE = 0,
+    ROCKET_FUCHIKOMA_ANIM_FLY = 1,
+    ROCKET_FUCHIKOMA_ANIM_DETONATE = 2,
+    ROCKET_FUCHIKOMA_ANIM_DETONATE_HOLD = 3,
+};
+
+/* rocket_fuchikoma_jump_table: behaviour streams */
+enum {
+    ROCKET_FUCHIKOMA_IDLE = 0,
+    ROCKET_FUCHIKOMA_RESET = 1,
+    ROCKET_FUCHIKOMA_SETTLE = 2,
+    ROCKET_FUCHIKOMA_READY = 3,
+    ROCKET_FUCHIKOMA_AIM_START = 4,
+    GRENADE_FUCHIKOMA_SEEK = 5,
+    ROCKET_FUCHIKOMA_APPROACH = 6,
+    GRENADE_FUCHIKOMA_TRACK = 7,
+    ROCKET_FUCHIKOMA_CLOSE_IN = 8,
+    ROCKET_FUCHIKOMA_BRAKE = 9,
+    GRENADE_FUCHIKOMA_WAIT_STOP = 10,
+    ROCKET_FUCHIKOMA_FIRE_WAIT = 11,
+    ROCKET_FUCHIKOMA_FIRE_START = 12,
+    GRENADE_FUCHIKOMA_DETONATE_WAIT = 13,
+    ROCKET_FUCHIKOMA_REPOSITION = 14,
+    ROCKET_FUCHIKOMA_REPOSITION_FACE = 15,
+};
+
+/* bazooka_script_table: animation streams */
+enum {
+    BAZOOKA_SOLDIER_ANIM_IDLE = 0,
+    ENEMY_ANIM_FIDGET = 1,
+    BAZOOKA_SOLDIER_ANIM_WALK_START = 2,
+    ENEMY_ANIM_WALK = 3,
+    BAZOOKA_SOLDIER_ANIM_RUN_START = 4,
+    BAZOOKA_SOLDIER_ANIM_RUN = 5,
+    BAZOOKA_SOLDIER_ANIM_FIRE = 6,
+    BAZOOKA_SOLDIER_ANIM_FIRE_SHOT = 7,
+    BAZOOKA_SOLDIER_ANIM_FIRE_ALT = 8,
+    BAZOOKA_SOLDIER_ANIM_HOLD = 9,
+    BAZOOKA_SOLDIER_ANIM_AIM_HOLD = 10,
+    BAZOOKA_SOLDIER_ANIM_POSE_HOLD = 11,
+    BAZOOKA_SOLDIER_ANIM_SWEEP = 12,
+    ENEMY_ANIM_FALL = 13,
+    ENEMY_ANIM_DEAD = 14,
+    BAZOOKA_SOLDIER_ANIM_FLY_START = 15,
+    BAZOOKA_SOLDIER_ANIM_FLY_LOOP = 16,
+};
+
+/* enemy_script_jumps_s03: behaviour streams */
+enum {
+    BAZOOKA_SOLDIER_IDLE = 0,
+    BAZOOKA_SOLDIER_WAIT = 1,
+    BAZOOKA_SOLDIER_WAIT_LOOP = 2,
+    BAZOOKA_SOLDIER_WANDER = 3,
+    BAZOOKA_SOLDIER_PATROL = 4,
+    BAZOOKA_SOLDIER_PATROL_LOOP = 5,
+    BAZOOKA_SOLDIER_REST_SETUP = 6,
+    BAZOOKA_SOLDIER_REST = 7,
+    BAZOOKA_SOLDIER_REST_LOOP = 8,
+    BAZOOKA_SOLDIER_WANDER_SETUP = 9,
+    BAZOOKA_SOLDIER_WANDER_STEP = 10,
+    BAZOOKA_SOLDIER_WANDER_LOOP = 11,
+    BAZOOKA_SOLDIER_WAIT_SHORT = 12,
+    BAZOOKA_SOLDIER_WAIT_SHORT_LOOP = 13,
+    BAZOOKA_SOLDIER_HOLD = 14,
+    BAZOOKA_SOLDIER_TRACK_WAIT = 15,
+};
+
+/* gun_turret_2_data: animation streams */
+enum {
+    GUN_TURRET_2_POSE = 0,
+};
+
+/* gun_turret_2_link_data: behaviour streams */
+enum {
+    GUN_TURRET_2_IDLE = 0,
+    GUN_TURRET_2_SPOTTED = 1,
+    GUN_TURRET_2_TRACKING = 2,
+    GUN_TURRET_2_AIMED = 3,
+    GUN_TURRET_2_OPEN_FIRE = 4,
+    GUN_TURRET_2_FIRING = 5,
+    GUN_TURRET_2_COOLDOWN = 6,
+    GUN_TURRET_2_COOLING = 7,
+};
+
+/* helicopter2_script_arg: animation streams */
+enum {
+    HELICOPTER2_SCRIPT_CFG = 0,
+};
+
+/* helicopter2_script_data: behaviour streams */
+enum {
+    HELICOPTER2_THINK = 0,
+    HELICOPTER2_SELECT = 1,
+    HELICOPTER2_PATROL = 2,
+    HELICOPTER2_CRUISE = 3,
+    HELICOPTER2_BANK_TURN = 4,
+    HELICOPTER2_ATTACK = 5,
+    HELICOPTER2_HOVER = 6,
+    HELICOPTER2_HOLD_START = 7,
+    HELICOPTER2_HOLD_LOOP = 8,
+    HELICOPTER2_CYCLE_END = 9,
+};
+
+/* time_bomb_data: animation streams */
+enum {
+    TIME_BOMB_SCRIPT = 0,
+};
+
+/* enemy_buffer_table: animation streams */
+enum {
+    ENEMY_SCRIPT_CODE = 0,
+    ENEMY_PLACE_ANIM_CYCLE = 1,
+    ENEMY_PLACE_ANIM_OPEN = 2,
+    ENEMY_PLACE_ANIM_OPEN_HOLD = 3,
+    ENEMY_PLACE_ANIM_CLOSE = 4,
+    ENEMY_PLACE_ANIM_CLOSE_HOLD = 5,
+    ENEMY_TYPE_TABLE_A = 6,
+    ENEMY_PLACE_ANIM_RAISE_HOLD = 7,
+    ENEMY_TYPE_TABLE_B = 8,
+    ENEMY_PLACE_ANIM_LOWER_HOLD = 9,
+    ENEMY_PLACE_ANIM_FALL = 10,
+    ENEMY_PLACE_ANIM_FALL_SECOND = 11,
+    ENEMY_PLACE_ANIM_FALL_THIRD = 12,
+    ENEMY_PLACE_ANIM_FALL_FOURTH = 13,
+    ENEMY_PLACE_ANIM_FALL_FIFTH = 14,
+    ENEMY_PLACE_ANIM_FALL_SIXTH = 15,
+    ENEMY_PLACE_ANIM_FALL_SEVENTH = 16,
+    ENEMY_PLACE_ANIM_FALL_EIGHTH = 17,
+    ENEMY_PLACE_ANIM_FALL_NINTH = 18,
+    ENEMY_PLACE_ANIM_FALL_QUICK_E = 19,
+    ENEMY_PLACE_ANIM_FALL_QUICK_F = 20,
+    ENEMY_PLACE_ANIM_FALL_QUICK_G = 21,
+    ENEMY_PLACE_ANIM_FALL_QUICK_H = 22,
+    ENEMY_PLACE_ANIM_FALL_QUICK_I = 23,
+    ENEMY_PLACE_ANIM_FALL_QUICK_J = 24,
+    ENEMY_PLACE_ANIM_FALL_QUICK_K = 25,
+    ENEMY_PLACE_ANIM_FALL_SETTLE_A = 26,
+    ENEMY_PLACE_ANIM_FALL_SETTLE_B = 27,
+    ENEMY_PLACE_ANIM_FALL_LAND_A = 28,
+    ENEMY_PLACE_ANIM_FALL_LAND_B = 29,
+    ENEMY_PLACE_ANIM_FALL_HOLD = 30,
+};
+
+/* enemy_script_data: behaviour streams */
+enum {
+    ENEMY_PLACE_AWAIT_ENABLE = 0,
+    ENEMY_PLACE_DISPATCH = 1,
+    ENEMY_PLACE_IDLE = 2,
+    ENEMY_PLACE_IDLE_WAIT = 3,
+    ENEMY_PLACE_PATROL = 4,
+    ENEMY_PLACE_PATROL_WAIT = 5,
+    ENEMY_PLACE_ASCEND = 6,
+    ENEMY_PLACE_ASCEND_WAIT = 7,
+    ENEMY_PLACE_HOVER = 8,
+    ENEMY_PLACE_HOVER_WAIT = 9,
+    ENEMY_PLACE_DESCEND = 10,
+    ENEMY_PLACE_DESCEND_WAIT = 11,
+    ENEMY_PLACE_SPOTTED = 12,
+    ENEMY_PLACE_SPOTTED_WAIT = 13,
+    ENEMY_PLACE_TWIN_GUN = 14,
+    ENEMY_PLACE_TWIN_GUN_WAIT = 15,
+    ENEMY_PLACE_AIM = 16,
+    ENEMY_PLACE_AIM_WAIT = 17,
+    ENEMY_PLACE_FIRE_BURST = 18,
+    ENEMY_PLACE_FIRE_BURST_WAIT = 19,
+    ENEMY_PLACE_SALVO = 20,
+    ENEMY_PLACE_SALVO_WAIT = 21,
+    ENEMY_PLACE_FIRE = 22,
+    ENEMY_PLACE_FIRE_WAIT = 23,
+    ENEMY_PLACE_COOLDOWN = 24,
+    ENEMY_PLACE_COOLDOWN_WAIT = 25,
+    ENEMY_PLACE_DISENGAGE = 26,
+    ENEMY_PLACE_DISENGAGE_WAIT = 27,
+    ENEMY_PLACE_FALL = 28,
+    ENEMY_PLACE_FALL_WAIT = 29,
+    ENEMY_PLACE_FALL_GUARD = 30,
+    ENEMY_PLACE_RESUME = 31,
+    ENEMY_PLACE_AIM_CYCLE = 32,
+    ENEMY_PLACE_AIM_CYCLE_WAIT = 33,
+    ENEMY_PLACE_COOLDOWN_CYCLE = 34,
+    ENEMY_PLACE_COOLDOWN_CYCLE_WAIT = 35,
+};
+
+/* D_801190A0: animation streams */
+enum {
+    ENEMY_SHOT_SCRIPT = 0,
+};
+
+/* rocket_fuchikoma_state_table: states */
+enum {
+    ROCKET_FUCHIKOMA_STATE_IDLE = 0,
+    ROCKET_FUCHIKOMA_STATE_FLY = 1,
+    ROCKET_FUCHIKOMA_STATE_DETONATE = 2,
+};
+
+/* enemy_state_table_s03: states */
+enum {
+    ENEMY_STATE_IDLE = 0,
+    ENEMY_STATE_WAIT = 1,
+    ENEMY_STATE_WANDER = 2,
+    ENEMY_STATE_TRACK = 3,
+    ENEMY_STATE_FLY_WANDER = 4,
+    ENEMY_STATE_AIM = 5,
+    ENEMY_STATE_RETREAT = 6,
+    ENEMY_STATE_HOLD = 11,
+};
+
+/* gun_turret_2_states: states */
+enum {
+    GUN_TURRET_2_STATE_IDLE = 0,
+    GUN_TURRET_2_STATE_TRACK = 1,
+    GUN_TURRET_2_STATE_FIRE = 2,
+};
+
+/* helicopter2_states: states */
+enum {
+    HELICOPTER2_STATE_PATROL = 0,
+    HELICOPTER2_STATE_ATTACK = 1,
+    HELICOPTER2_STATE_HOVER = 2,
+    HELICOPTER2_STATE_BANK_TURN = 3,
+};
+
+/* enemy_state_table: states */
+enum {
+    ENEMY_PLACE_STATE_IDLE = 0,
+    ENEMY_PLACE_STATE_WAIT = 1,
+    ENEMY_PLACE_STATE_WANDER = 2,
+    ENEMY_PLACE_STATE_TRACK = 3,
+    ENEMY_PLACE_STATE_FLY_WANDER = 4,
+    ENEMY_PLACE_STATE_FACE = 5,
+    ENEMY_PLACE_STATE_RETREAT = 6,
+    ENEMY_PLACE_STATE_DISENGAGE = 7,
+    ENEMY_PLACE_STATE_AIM = 8,
+    ENEMY_PLACE_STATE_TWIN_SHOT = 9,
+    ENEMY_PLACE_STATE_SALVO = 10,
+    ENEMY_PLACE_STATE_FIRE = 11,
+    ENEMY_PLACE_STATE_COOLDOWN = 12,
+    ENEMY_PLACE_STATE_FALL = 13,
+};
+
+/* script_call_table: the ops of rocket_fuchikoma_spawn */
+enum {
+    ROCKET_FUCHIKOMA_JUMP_NEAR = 1, /* script_jump_near */
+    ROCKET_FUCHIKOMA_READ_SPEED_LONG = 2, /* script_read_speed_long */
+    ROCKET_FUCHIKOMA_READ_S32 = 3, /* obj_read_s32 */
+    ROCKET_FUCHIKOMA_READ_LONG = 4, /* script_read_long */
+    ROCKET_FUCHIKOMA_AIM_JITTERED = 5, /* obj_aim_jittered */
+    ROCKET_FUCHIKOMA_FACE_PLAYER = 6, /* obj_face_player */
+    ROCKET_FUCHIKOMA_BRANCH_ON_FLAG = 7, /* script_branch_on_flag */
+    ROCKET_FUCHIKOMA_JUMP_IF_NOT_BELOW_SPEED = 8, /* script_jump_if_not_below_speed */
+    ROCKET_FUCHIKOMA_JUMP_NEAR_PLAYER = 9, /* script_jump_near_player */
+    ROCKET_FUCHIKOMA_JUMP_IF_BEYOND_RADIUS = 10, /* script_jump_if_beyond_radius */
+    ROCKET_FUCHIKOMA_JUMP_IF_FACING_PLAYER_IN_RADIUS = 11, /* script_jump_if_facing_player_in_radius */
+};
+
+/* gun_turret_2_calls: the ops of gun_turret_2_spawn */
+enum {
+    GUN_TURRET_2_JUMP_WITHIN = 1, /* obj_script_jump_within */
+    GUN_TURRET_2_BRANCH_IF_AIMED = 2, /* turret_branch_if_aimed */
+};
+
+/* helicopter2_script_calls: the ops of helicopter2_spawn */
+enum {
+    HELICOPTER2_SPEED_APPROACH = 1, /* obj_speed_approach */
+    HELICOPTER2_SET_NEXT_STATE = 2, /* obj_set_next_state */
+    HELICOPTER2_SET_TURN_MODE = 3, /* script_set_turn_mode */
+    HELICOPTER2_JUMP_IF_PLAYER_NEAR = 4, /* obj_jump_if_player_near */
+    HELICOPTER2_JUMP_TABLE_IF_PLAYER_FAR = 5, /* script_op_jump_table_if_player_far */
+};
+
+/* enemy_callback_table: the ops of enemy_place_spawn */
+enum {
+    ENEMY_PLACE_READ_SPEED = 1, /* script_read_speed */
+    ENEMY_PLACE_READ_NEXT_STATE = 2, /* script_read_next_state */
+    ENEMY_PLACE_FUNC_800C0328 = 3, /* func_800C0328 */
+    ENEMY_PLACE_BRANCH_IF_PLAYER_NEAR = 4, /* script_branch_if_player_near */
+    ENEMY_PLACE_CLEAR_SALVO_TIMER = 5, /* script_clear_salvo_timer */
+    ENEMY_PLACE_JUMP_IF_FLAG = 6, /* script_jump_if_flag */
+    ENEMY_PLACE_SOUND_SET = 7, /* enemy_sound_set */
+    ENEMY_PLACE_SOUND_CLEAR = 8, /* enemy_sound_clear */
+};
+
+#endif

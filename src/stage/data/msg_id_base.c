@@ -1,0 +1,20 @@
+/* Data shared by s01, s02, s04, s05, s06, s07, s08, s09, s10, s12, s13 (5 objects): scripts/stage_data.py. */
+
+s32 msg_id_base = -1;
+
+u32 d_80117920[5] = {
+    0x00000000, 0x00000002, 0x00000004, 0x00000006, 0x00000006,
+};
+
+u32 d_80117934[5] = {
+    0xFFFFFFBE, 0xFFFFFFB2, 0xFFFFFFA9, 0xFFFFFFBE, 0xFFFFFFBE,
+};
+
+u32 d_80117948[3] = {
+    0x00000018, 0x00000019, 0x0000001A,
+};
+
+s32 msg_slot_ids[12] = {
+    0x50, 0x51, 0x52, 0x53, 0x54, 0x55,
+    0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B,
+};

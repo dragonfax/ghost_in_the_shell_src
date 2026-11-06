@@ -1,0 +1,211 @@
+/* Data shared by s03, s05: scripts/stage_data.py. */
+
+struct BazookaScriptTableStreams {
+    s16 bazooka_soldier_anim_idle[6];
+    s16 enemy_anim_fidget[18];
+    s16 bazooka_soldier_anim_walk_start[16];
+    s16 enemy_anim_walk[22];
+    s16 bazooka_soldier_anim_run_start[24];
+    s16 bazooka_soldier_anim_run[20];
+    s16 bazooka_soldier_anim_fire[20];
+    s16 bazooka_soldier_anim_fire_shot[22];
+    s16 bazooka_soldier_anim_fire_alt[34];
+    s16 bazooka_soldier_anim_hold[4];
+    s16 bazooka_soldier_anim_aim_hold[4];
+    s16 bazooka_soldier_anim_pose_hold[4];
+    s16 bazooka_soldier_anim_sweep[20];
+    s16 enemy_anim_fall[16];
+    s16 enemy_anim_dead[24];
+    s16 bazooka_soldier_anim_fly_start[24];
+    s16 bazooka_soldier_anim_fly_loop[20];
+    s16 *table[17];
+} bazooka_script_table_streams = {
+    /* bazooka_soldier_anim_idle */ {
+        FLY(0),
+        STEP(40, 1),
+        GOTO(BAZOOKA_SOLDIER_ANIM_IDLE),
+    },
+    /* enemy_anim_fidget */ {
+        FLY(0),
+        STEP(40, 1),
+        STEP(40, 62),
+        STEP(40, 62),
+        STEP(40, 1),
+        STEP(40, 63),
+        STEP(40, 63),
+        STEP(40, 1),
+        GOTO(ENEMY_ANIM_FIDGET),
+    },
+    /* bazooka_soldier_anim_walk_start */ {
+        STEP(8, 4),
+        FLY(1),
+        STEP(8, 5),
+        SET_F8(15),
+        FLY(3),
+        STEP(8, 6),
+        FLY(4),
+        STEP(8, 7),
+    },
+    /* enemy_anim_walk */ {
+        FLY(4),
+        STEP(8, 7),
+        STEP(8, 1),
+        SET_F8(15),
+        STEP(8, 2),
+        STEP(8, 3),
+        STEP(8, 4),
+        STEP(8, 5),
+        SET_F8(15),
+        STEP(8, 6),
+        GOTO(ENEMY_ANIM_WALK),
+    },
+    /* bazooka_soldier_anim_run_start */ {
+        STEP(12, 4),
+        SET_F8(15),
+        FLY(1),
+        STEP(8, 5),
+        FLY(3),
+        STEP(10, 14),
+        STEP(10, 15),
+        FLY(5),
+        STEP(6, 9),
+        SET_F8(15),
+        FLY(8),
+        STEP(6, 10),
+    },
+    /* bazooka_soldier_anim_run */ {
+        STEP(6, 11),
+        STEP(6, 12),
+        SET_F8(15),
+        STEP(6, 13),
+        STEP(6, 14),
+        STEP(6, 15),
+        STEP(6, 9),
+        SET_F8(15),
+        STEP(6, 10),
+        GOTO(BAZOOKA_SOLDIER_ANIM_RUN),
+    },
+    /* bazooka_soldier_anim_fire */ {
+        FLY(0),
+        STEP(11, 17),
+        STEP(7, 18),
+        SET_F8(255),
+        STEP(7, 19),
+        STEP(7, 20),
+        STEP(7, 21),
+        STEP(7, 22),
+        STEP(7, 23),
+        GOTO(BAZOOKA_SOLDIER_ANIM_FIRE),
+    },
+    /* bazooka_soldier_anim_fire_shot */ {
+        STEP(23, 25),
+        FLY(0),
+        STEP(14, 26),
+        STEP(14, 27),
+        STEP(14, 28),
+        SET_F8(255),
+        STEP(7, 29),
+        STEP(7, 30),
+        STEP(7, 31),
+        STEP(27, 1),
+        GOTO(BAZOOKA_SOLDIER_ANIM_IDLE),
+    },
+    /* bazooka_soldier_anim_fire_alt */ {
+        FLY(0),
+        STEP(19, 49),
+        STEP(14, 50),
+        STEP(14, 51),
+        STEP(14, 52),
+        STEP(7, 53),
+        STEP(7, 54),
+        SET_F8(255),
+        STEP(7, 55),
+        STEP(7, 55),
+        STEP(7, 56),
+        STEP(7, 57),
+        STEP(7, 58),
+        STEP(7, 59),
+        STEP(7, 60),
+        STEP(27, 1),
+        GOTO(BAZOOKA_SOLDIER_ANIM_IDLE),
+    },
+    /* bazooka_soldier_anim_hold */ {
+        STEP(40, 17),
+        GOTO(BAZOOKA_SOLDIER_ANIM_HOLD),
+    },
+    /* bazooka_soldier_anim_aim_hold */ {
+        STEP(40, 25),
+        GOTO(BAZOOKA_SOLDIER_ANIM_HOLD),
+    },
+    /* bazooka_soldier_anim_pose_hold */ {
+        STEP(40, 49),
+        GOTO(BAZOOKA_SOLDIER_ANIM_HOLD),
+    },
+    /* bazooka_soldier_anim_sweep */ {
+        STEP(6, 39),
+        STEP(6, 40),
+        STEP(6, 41),
+        STEP(6, 42),
+        STEP(6, 43),
+        STEP(6, 44),
+        STEP(6, 45),
+        STEP(6, 46),
+        STEP(6, 47),
+        GOTO(BAZOOKA_SOLDIER_ANIM_HOLD),
+    },
+    /* enemy_anim_fall */ {
+        STEP(8, 33),
+        STEP(16, 34),
+        STEP(16, 35),
+        STEP(32, 36),
+        STEP(8, 37),
+        STEP(16, 38),
+        STEP(10, 38),
+        GOTO(ENEMY_ANIM_FALL),
+    },
+    /* enemy_anim_dead */ {
+        STEP(4, 65),
+        STEP(4, 66),
+        STEP(4, 67),
+        STEP(4, 68),
+        STEP(4, 69),
+        STEP(4, 70),
+        STEP(4, 71),
+        STEP(4, 72),
+        STEP(4, 73),
+        STEP(10, 74),
+        STEP(10, 74),
+        GOTO(ENEMY_ANIM_DEAD),
+    },
+    /* bazooka_soldier_anim_fly_start */ {
+        STEP(16, 4),
+        SET_F8(15),
+        FLY(1),
+        STEP(8, 5),
+        FLY(3),
+        STEP(10, 14),
+        STEP(10, 15),
+        FLY(5),
+        STEP(6, 9),
+        SET_F8(15),
+        FLY(8),
+        STEP(6, 10),
+    },
+    /* bazooka_soldier_anim_fly_loop */ {
+        STEP(6, 11),
+        STEP(6, 12),
+        SET_F8(15),
+        STEP(6, 13),
+        STEP(6, 14),
+        STEP(6, 15),
+        STEP(6, 9),
+        SET_F8(15),
+        STEP(6, 10),
+        GOTO(BAZOOKA_SOLDIER_ANIM_RUN),
+    },
+    /* table */ {
+        bazooka_script_table_streams.bazooka_soldier_anim_idle, bazooka_script_table_streams.enemy_anim_fidget, bazooka_script_table_streams.bazooka_soldier_anim_walk_start, bazooka_script_table_streams.enemy_anim_walk, bazooka_script_table_streams.bazooka_soldier_anim_run_start, bazooka_script_table_streams.bazooka_soldier_anim_run,
+        bazooka_script_table_streams.bazooka_soldier_anim_fire, bazooka_script_table_streams.bazooka_soldier_anim_fire_shot, bazooka_script_table_streams.bazooka_soldier_anim_fire_alt, bazooka_script_table_streams.bazooka_soldier_anim_hold, bazooka_script_table_streams.bazooka_soldier_anim_aim_hold, bazooka_script_table_streams.bazooka_soldier_anim_pose_hold,
+        bazooka_script_table_streams.bazooka_soldier_anim_sweep, bazooka_script_table_streams.enemy_anim_fall, bazooka_script_table_streams.enemy_anim_dead, bazooka_script_table_streams.bazooka_soldier_anim_fly_start, bazooka_script_table_streams.bazooka_soldier_anim_fly_loop,
+    },
+};

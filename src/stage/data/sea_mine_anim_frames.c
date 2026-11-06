@@ -1,0 +1,5 @@
+/* Data shared by s02, s04: scripts/stage_data.py. */
+
+u16 sea_mine_anim_frames[8] = {
+    0x0000, 0x0008, 0x0001, 0x0008, 0x0002, 0x0008, 0xFFFF, 0x0000,
+};

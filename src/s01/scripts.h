@@ -1,0 +1,338 @@
+/* s01: names for the script streams' table indices and op numbers, made by scripts/script_c.py
+   from the stage's script data (FINDINGS "Script system"). */
+
+#ifndef SCRIPTS_H
+#define SCRIPTS_H
+
+/* keyholder_fuchikoma_data: animation streams */
+enum {
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_ANIM_IDLE = 0,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_ANIM_WALK = 1,
+};
+
+/* keyholder_script: behaviour streams */
+enum {
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_START = 0,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_PATROL_START = 1,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_PATROL_SCAN = 2,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_AIM = 3,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_FIRE_START = 4,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_FIRE_BURST = 5,
+    ENEMY_FUCHIKOMA_KEY_CODE_HOLDER_FIRE_LOOP = 6,
+};
+
+/* smg_soldier_data: animation streams */
+enum {
+    SMG_SOLDIER_ANIM_IDLE = 0,
+    SMG_SOLDIER_ANIM_IDLE_ALT = 1,
+    SMG_SOLDIER_ANIM_WALK_START = 2,
+    SMG_SOLDIER_ANIM_WALK = 3,
+    SMG_SOLDIER_ANIM_RUN_START = 4,
+    SMG_SOLDIER_ANIM_RUN = 5,
+    SMG_SOLDIER_ANIM_AIM = 6,
+    SMG_SOLDIER_ANIM_HOLD = 7,
+    SMG_SOLDIER_ANIM_HIT = 8,
+};
+
+/* smg_soldier_jump_table: behaviour streams */
+enum {
+    SMG_SOLDIER_IDLE = 0,
+    SMG_SOLDIER_IDLE_PAUSE = 1,
+    SMG_SOLDIER_IDLE_CYCLE = 2,
+    SMG_SOLDIER_PATROL = 3,
+    SMG_SOLDIER_PATROL_CYCLE = 4,
+    SMG_SOLDIER_PATROL_WAIT = 5,
+    SMG_SOLDIER_HOLD = 6,
+    SMG_SOLDIER_HOLD_PAUSE = 7,
+    SMG_SOLDIER_HOLD_CYCLE = 8,
+    SMG_SOLDIER_WALK = 9,
+    SMG_SOLDIER_WALK_STEP = 10,
+    SMG_SOLDIER_WALK_CYCLE = 11,
+    SMG_SOLDIER_WALK_PAUSE = 12,
+    SMG_SOLDIER_WALK_PAUSE_CYCLE = 13,
+};
+
+/* rocket_fuchikoma_data: animation streams */
+enum {
+    ROCKET_FUCHIKOMA_ANIM_IDLE = 0,
+    ROCKET_FUCHIKOMA_ANIM_FLY = 1,
+    ROCKET_FUCHIKOMA_ANIM_DETONATE = 2,
+    ROCKET_FUCHIKOMA_ANIM_DETONATE_HOLD = 3,
+};
+
+/* rocket_fuchikoma_jump_table: behaviour streams */
+enum {
+    ROCKET_FUCHIKOMA_IDLE = 0,
+    ROCKET_FUCHIKOMA_RESET = 1,
+    ROCKET_FUCHIKOMA_SETTLE = 2,
+    ROCKET_FUCHIKOMA_READY = 3,
+    ROCKET_FUCHIKOMA_AIM_START = 4,
+    GRENADE_FUCHIKOMA_SEEK = 5,
+    ROCKET_FUCHIKOMA_APPROACH = 6,
+    GRENADE_FUCHIKOMA_TRACK = 7,
+    ROCKET_FUCHIKOMA_CLOSE_IN = 8,
+    ROCKET_FUCHIKOMA_BRAKE = 9,
+    GRENADE_FUCHIKOMA_WAIT_STOP = 10,
+    ROCKET_FUCHIKOMA_FIRE_WAIT = 11,
+    ROCKET_FUCHIKOMA_FIRE_START = 12,
+    GRENADE_FUCHIKOMA_DETONATE_WAIT = 13,
+    ROCKET_FUCHIKOMA_REPOSITION = 14,
+    ROCKET_FUCHIKOMA_REPOSITION_FACE = 15,
+};
+
+/* helicopter_data: animation streams */
+enum {
+    HELICOPTER_SCRIPT = 0,
+};
+
+/* helicopter_label_table: behaviour streams */
+enum {
+    HELICOPTER_IDLE = 0,
+    HELICOPTER_PICK_STATE = 1,
+    HELICOPTER_PATROL = 2,
+    HELICOPTER_PATROL_FAR = 3,
+    HELICOPTER_SPIN = 4,
+    HELICOPTER_AIM = 5,
+    HELICOPTER_APPROACH = 6,
+    HELICOPTER_COOLDOWN = 7,
+    HELICOPTER_COOLING = 8,
+    HELICOPTER_COOLDOWN_END = 9,
+};
+
+/* giant_robot_data: animation streams */
+enum {
+    GIANT_ROBOT_M1_BOSS_ANIM_STAND = 0,
+    GIANT_ROBOT_M1_BOSS_ANIM_WALK_START = 1,
+    GIANT_ROBOT_M1_BOSS_ANIM_WALK = 2,
+    GIANT_ROBOT_M1_BOSS_ANIM_WALK_STOP = 3,
+    GIANT_ROBOT_M1_BOSS_ANIM_IDLE = 4,
+    GIANT_ROBOT_M1_BOSS_ANIM_IDLE_HOLD = 5,
+    GIANT_ROBOT_M1_BOSS_ANIM_SETTLE = 6,
+    GIANT_ROBOT_M1_BOSS_ANIM_DORMANT = 7,
+    GIANT_ROBOT_M1_BOSS_ANIM_RISE = 8,
+    GIANT_ROBOT_M1_BOSS_ANIM_CHARGE_RAMP = 9,
+    GIANT_ROBOT_M1_BOSS_ANIM_CHARGE_HOLD = 10,
+    GIANT_ROBOT_M1_BOSS_ANIM_RELEASE = 11,
+    GIANT_ROBOT_M1_BOSS_ANIM_RELEASE_HOLD = 12,
+    GIANT_ROBOT_M1_BOSS_ANIM_RETURN = 13,
+};
+
+/* giant_robot_link_data: behaviour streams */
+enum {
+    GIANT_ROBOT_M1_BOSS_INTRO = 0,
+    GIANT_ROBOT_M1_BOSS_INTRO_WAIT = 1,
+    GIANT_ROBOT_M1_BOSS_INTRO_ENGAGE = 2,
+    GIANT_ROBOT_M1_BOSS_IDLE_ENTER = 3,
+    GIANT_ROBOT_M1_BOSS_IDLE = 4,
+    GIANT_ROBOT_M1_BOSS_IDLE_WAIT = 5,
+    GIANT_ROBOT_M1_BOSS_ATTACK_CHOICE = 6,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS = 7,
+    GIANT_ROBOT_M1_BOSS_FIRE_BURST = 8,
+    GIANT_ROBOT_M1_BOSS_FIRE_LOOP = 9,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG = 10,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_BURST = 11,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_BURST_LOOP = 12,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS_AGAIN = 13,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS_AGAIN_BURST = 14,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS_AGAIN_BURST_LOOP = 15,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_AGAIN = 16,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_AGAIN_BURST = 17,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_AGAIN_BURST_LOOP = 18,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS_LONG = 19,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS_LONG_BURST = 20,
+    GIANT_ROBOT_M1_BOSS_SWEEP_POS_LONG_BURST_LOOP = 21,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_SHORT = 22,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_SHORT_BURST = 23,
+    GIANT_ROBOT_M1_BOSS_SWEEP_NEG_SHORT_BURST_LOOP = 24,
+    GIANT_ROBOT_M1_BOSS_SWEEP_STOP = 25,
+    GIANT_ROBOT_M1_BOSS_SWEEP_DONE = 26,
+    GIANT_ROBOT_M1_BOSS_WAIT_DONE = 27,
+    GIANT_ROBOT_M1_BOSS_SWEEP_RETURN = 28,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_ENTER = 29,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_START = 30,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_CHARGE = 31,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_RELEASE = 32,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_SWAY = 33,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_HOLD = 34,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_HOLD_WAIT = 35,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_END = 36,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_RESET = 37,
+    GIANT_ROBOT_M1_BOSS_BARRAGE_COOLDOWN = 38,
+    GIANT_ROBOT_M1_BOSS_RETREAT = 39,
+    GIANT_ROBOT_M1_BOSS_RETREAT_WAIT = 40,
+    GIANT_ROBOT_M1_BOSS_RETREAT_STOP = 41,
+    GIANT_ROBOT_M1_BOSS_RETREAT_STOP_WAIT = 42,
+    GIANT_ROBOT_M1_BOSS_RETREAT_WALK = 43,
+    GIANT_ROBOT_M1_BOSS_RETREAT_END = 44,
+    GIANT_ROBOT_M1_BOSS_PAUSE_RESUME = 45,
+    GIANT_ROBOT_M1_BOSS_HALT_WAIT = 46,
+    GIANT_ROBOT_M1_BOSS_HALT = 47,
+    GIANT_ROBOT_M1_BOSS_PAUSE_CLEAR_WAIT = 48,
+    GIANT_ROBOT_M1_BOSS_PAUSE_CLEAR = 49,
+    GIANT_ROBOT_M1_BOSS_FADE_WAIT = 50,
+    GIANT_ROBOT_M1_BOSS_SIDE_FX_START = 51,
+    GIANT_ROBOT_M1_BOSS_SIDE_FX = 52,
+    GIANT_ROBOT_M1_BOSS_SIDE_FX_RETURN = 53,
+    GIANT_ROBOT_M1_BOSS_PAUSE_RETREAT_ENTER = 54,
+    GIANT_ROBOT_M1_BOSS_PAUSE_THEN_RETREAT = 55,
+    GIANT_ROBOT_M1_BOSS_PAUSE = 56,
+    GIANT_ROBOT_M1_BOSS_PAUSE_END = 57,
+    GIANT_ROBOT_M1_BOSS_PAUSE_RETURN = 58,
+    GIANT_ROBOT_M1_BOSS_FX_RETREAT_ENTER = 59,
+    GIANT_ROBOT_M1_BOSS_FX_THEN_RETREAT = 60,
+    GIANT_ROBOT_M1_BOSS_FX_PAUSE = 61,
+    GIANT_ROBOT_M1_BOSS_PAUSE_THEN_RESUME = 62,
+    GIANT_ROBOT_M1_BOSS_RESUME_RETURN = 63,
+    GIANT_ROBOT_M1_BOSS_WOBBLE_ENTER = 64,
+    GIANT_ROBOT_M1_BOSS_WOBBLE = 65,
+    GIANT_ROBOT_M1_BOSS_WOBBLE_NEG = 66,
+    GIANT_ROBOT_M1_BOSS_WOBBLE_POS = 67,
+    GIANT_ROBOT_M1_BOSS_WOBBLE_END = 68,
+    GIANT_ROBOT_M1_BOSS_SIDE_FX_ENTER = 69,
+    GIANT_ROBOT_M1_BOSS_SIDE_FX_THEN_NEXT = 70,
+    GIANT_ROBOT_M1_BOSS_NEXT_ACTION = 71,
+    GIANT_ROBOT_M1_BOSS_NEXT_RETURN = 72,
+    GIANT_ROBOT_M1_BOSS_TURN_ENTER = 73,
+    GIANT_ROBOT_M1_BOSS_TURN_CHECK = 74,
+    GIANT_ROBOT_M1_BOSS_TURN_CHOICE = 75,
+    GIANT_ROBOT_M1_BOSS_PICK_IDLE_OR_ATTACK = 76,
+    GIANT_ROBOT_M1_BOSS_RETURN_AFTER_PICK = 77,
+    GIANT_ROBOT_M1_BOSS_TURN_PICK_ENTER = 78,
+    GIANT_ROBOT_M1_BOSS_TURN_PICK = 79,
+    GIANT_ROBOT_M1_BOSS_PICK_TURN = 80,
+    GIANT_ROBOT_M1_BOSS_RETURN_AFTER_TURN = 81,
+    GIANT_ROBOT_M1_BOSS_ENGAGE_BARRAGE = 82,
+    GIANT_ROBOT_M1_BOSS_PICK_RETREAT = 83,
+    GIANT_ROBOT_M1_BOSS_PICK_BY_DISTANCE = 84,
+};
+
+/* D_80116F9C: states */
+enum {
+    KEYHOLDER_FUCHIKOMA_STATE_IDLE = 0,
+    KEYHOLDER_FUCHIKOMA_STATE_ALERT = 1,
+};
+
+/* smg_soldier_states: states */
+enum {
+    SMG_SOLDIER_STATE_IDLE = 0,
+    SMG_SOLDIER_STATE_WAIT = 1,
+    SMG_SOLDIER_STATE_PATROL = 2,
+    SMG_SOLDIER_STATE_TRACK = 3,
+    SMG_SOLDIER_STATE_FLY_WANDER = 4,
+    SMG_SOLDIER_STATE_FIRE = 5,
+    SMG_SOLDIER_STATE_RETREAT = 6,
+    SMG_SOLDIER_STATE_FIRE_ALT = 7,
+};
+
+/* rocket_fuchikoma_state_table: states */
+enum {
+    ROCKET_FUCHIKOMA_STATE_IDLE = 0,
+    ROCKET_FUCHIKOMA_STATE_FLY = 1,
+    ROCKET_FUCHIKOMA_STATE_DETONATE = 2,
+};
+
+/* helicopter_slot_table: states */
+enum {
+    HELICOPTER_STATE_MOVE = 0,
+    HELICOPTER_STATE_AIM = 1,
+    HELICOPTER_STATE_APPROACH = 2,
+    HELICOPTER_STATE_SPIN = 3,
+};
+
+/* D_80118574: states */
+enum {
+    GIANT_ROBOT_STATE_INTRO = 0,
+    GIANT_ROBOT_STATE_SWEEP_POS = 1,
+    GIANT_ROBOT_STATE_FIRE_BURST = 2,
+    GIANT_ROBOT_STATE_AWAIT_CYCLE = 4,
+    GIANT_ROBOT_STATE_HALT = 5,
+    GIANT_ROBOT_STATE_IDLE = 6,
+    GIANT_ROBOT_STATE_ATTACK_CHOICE = 7,
+    GIANT_ROBOT_STATE_BARRAGE = 10,
+    GIANT_ROBOT_STATE_BARRAGE_FIRE = 11,
+    GIANT_ROBOT_STATE_BARRAGE_SWEEP = 12,
+};
+
+/* D_80116F50: the ops of keyholder_fuchikoma_spawn */
+enum {
+    KEYHOLDER_FUCHIKOMA_JUMP_NEAR_CORNER = 1, /* script_jump_near_corner */
+    KEYHOLDER_FUCHIKOMA_AIM_JITTER_PLACEMENT = 2, /* obj_aim_jitter_placement */
+    KEYHOLDER_FUCHIKOMA_AIM_AT_PLAYER = 3, /* obj_aim_at_player */
+    KEYHOLDER_FUCHIKOMA_JUMP_IF_OUTSIDE = 4, /* obj_script_jump_if_outside */
+    KEYHOLDER_FUCHIKOMA_JUMP_IF_PLAYER_IN_RADIUS = 5, /* script_jump_if_player_in_radius */
+    KEYHOLDER_FUCHIKOMA_JUMP_BY_PLAYER_VIEW = 6, /* script_jump_by_player_view */
+    KEYHOLDER_FUCHIKOMA_SET_SELECTOR = 7, /* obj_script_set_selector */
+    KEYHOLDER_FUCHIKOMA_JUMP_TABLE_MATCH = 8, /* script_jump_table_match */
+};
+
+/* script_call_table: the ops of rocket_fuchikoma_spawn */
+enum {
+    ROCKET_FUCHIKOMA_JUMP_NEAR = 1, /* script_jump_near */
+    ROCKET_FUCHIKOMA_READ_SPEED_LONG = 2, /* script_read_speed_long */
+    ROCKET_FUCHIKOMA_READ_S32 = 3, /* obj_read_s32 */
+    ROCKET_FUCHIKOMA_READ_LONG = 4, /* script_read_long */
+    ROCKET_FUCHIKOMA_AIM_JITTERED = 5, /* obj_aim_jittered */
+    ROCKET_FUCHIKOMA_FACE_PLAYER = 6, /* obj_face_player */
+    ROCKET_FUCHIKOMA_BRANCH_ON_FLAG = 7, /* script_branch_on_flag */
+    ROCKET_FUCHIKOMA_JUMP_IF_NOT_BELOW_SPEED = 8, /* script_jump_if_not_below_speed */
+    ROCKET_FUCHIKOMA_JUMP_NEAR_PLAYER = 9, /* script_jump_near_player */
+    ROCKET_FUCHIKOMA_JUMP_IF_BEYOND_RADIUS = 10, /* script_jump_if_beyond_radius */
+    ROCKET_FUCHIKOMA_JUMP_IF_FACING_PLAYER_IN_RADIUS = 11, /* script_jump_if_facing_player_in_radius */
+};
+
+/* d_801178BC: the ops of helicopter_spawn */
+enum {
+    HELICOPTER_SPEED_APPROACH = 1, /* obj_speed_approach */
+    HELICOPTER_SET_NEXT_STATE = 2, /* obj_set_next_state */
+    HELICOPTER_SET_TURN_MODE = 3, /* script_set_turn_mode */
+    HELICOPTER_JUMP_IF_PLAYER_NEAR = 4, /* obj_jump_if_player_near */
+    HELICOPTER_JUMP_TABLE_IF_PLAYER_FAR = 5, /* script_op_jump_table_if_player_far */
+    HELICOPTER_JUMP_CLEAR_FLAG = 6, /* script_op_jump_clear_flag */
+};
+
+/* giant_robot_call_table: the ops of giant_robot_spawn */
+enum {
+    GIANT_ROBOT_SKIP_OPERAND = 1, /* obj_script_skip_operand */
+    GIANT_ROBOT_FUNC_800C02FC = 2, /* func_800C02FC */
+    GIANT_ROBOT_JUMP_IF_FAR = 3, /* obj_script_jump_if_far */
+    GIANT_ROBOT_TURN_TO_PLAYER_JUMP = 4, /* script_turn_to_player_jump */
+    GIANT_ROBOT_CASE_MATCH = 5, /* script_case_match */
+    GIANT_ROBOT_READ_U16_VAR = 6, /* obj_script_read_u16_var */
+    GIANT_ROBOT_SET_VY = 7, /* script_op_set_vy */
+    GIANT_ROBOT_JUMP_IF_VY_NONNEG = 8, /* script_op_jump_if_vy_nonneg */
+    GIANT_ROBOT_VALUE_QUEUE_PUSH = 9, /* script_value_queue_push */
+    GIANT_ROBOT_VALUE_QUEUE_POP = 10, /* value_queue_pop */
+    GIANT_ROBOT_SET_VAR = 11, /* obj_script_set_var */
+    GIANT_ROBOT_SET_VAR_RAND = 12, /* obj_script_set_var_rand */
+    GIANT_ROBOT_LOOP = 13, /* obj_script_loop */
+    GIANT_ROBOT_ATTACK_PLAYER = 14, /* obj_attack_player */
+    GIANT_ROBOT_ROLL_RANDOM = 15, /* obj_roll_random */
+    GIANT_ROBOT_JUMP_IF_ROLL_LE = 16, /* obj_script_jump_if_roll_le */
+    GIANT_ROBOT_JUMP_IF_EQUAL = 17, /* obj_script_jump_if_equal */
+    GIANT_ROBOT_SET_ENEMY_VAR = 18, /* script_set_enemy_var */
+    GIANT_ROBOT_PLAY_FADE_SOUND = 19, /* obj_play_fade_sound */
+    GIANT_ROBOT_SWAY_START = 20, /* obj_sway_start */
+    GIANT_ROBOT_SWAY_RESET = 21, /* script_op_sway_reset */
+    GIANT_ROBOT_SOUND_LOOP_START = 22, /* script_op_sound_loop_start */
+    GIANT_ROBOT_SOUND_LOOP_STOP = 23, /* script_op_sound_loop_stop */
+    GIANT_ROBOT_FLAG_SET = 24, /* script_op_flag_set */
+    GIANT_ROBOT_CLEAR_FLAG = 25, /* script_op_clear_flag */
+    GIANT_ROBOT_SET_YAW_RATE = 26, /* script_op_set_yaw_rate */
+    GIANT_ROBOT_FIRE_SHOT = 27, /* obj_fire_shot */
+    GIANT_ROBOT_LOOP_ANIM_START = 28, /* obj_loop_anim_start */
+    GIANT_ROBOT_STATE_STOP = 29, /* script_op_state_stop */
+    GIANT_ROBOT_SET_TARGET = 30, /* script_op_set_target */
+    GIANT_ROBOT_FX_START = 31, /* giant_robot_fx_start */
+    GIANT_ROBOT_FX_STOP = 32, /* giant_robot_fx_stop */
+    GIANT_ROBOT_SIDE_FX = 33, /* giant_robot_side_fx */
+    GIANT_ROBOT_JUMP_IF_BELOW = 34, /* script_jump_if_below */
+    GIANT_ROBOT_COUNTER_INC = 35, /* script_counter_inc */
+    GIANT_ROBOT_JUMP_IF_COUNTER_EQ = 36, /* script_jump_if_counter_eq */
+    GIANT_ROBOT_JUMP_IF_COUNTER_GE = 37, /* script_jump_if_counter_ge */
+    GIANT_ROBOT_SET_FLAG = 38, /* script_set_flag */
+    GIANT_ROBOT_RESET_SCALE = 39, /* giant_robot_reset_scale */
+    GIANT_ROBOT_JUMP_IF_PLAYER_LOW = 40, /* script_jump_if_player_low */
+    GIANT_ROBOT_JUMP_IF_RAND_LE = 41, /* script_jump_if_rand_le */
+};
+
+#endif

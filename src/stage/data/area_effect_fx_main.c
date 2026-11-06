@@ -1,0 +1,3 @@
+/* Data shared by s10, s11: scripts/stage_data.py. */
+
+RecTemplate area_effect_fx_main = {1, 0xFF, 0x40, 0x40, 0, 0x2A, 0x18000, 0x18000, -0x1000, 0x4000};

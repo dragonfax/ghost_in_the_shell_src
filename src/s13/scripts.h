@@ -1,0 +1,85 @@
+/* s13: names for the script streams' table indices and op numbers, made by scripts/script_c.py
+   from the stage's script data (FINDINGS "Script system"). */
+
+#ifndef SCRIPTS_H
+#define SCRIPTS_H
+
+/* enemy_script_table: animation streams */
+enum {
+    ENEMY_INIT_HANDLERS_ANIM_IDLE = 0,
+    ENEMY_INIT_HANDLERS_ANIM_ALT_IDLE = 1,
+    ENEMY_INIT_HANDLERS_ANIM_ALT_TO_IDLE = 2,
+    ENEMY_INIT_HANDLERS_ANIM_IDLE_TO_ALT = 3,
+};
+
+/* obj_type_data: behaviour streams */
+enum {
+    OBJ_TYPE_DATA_IDLE = 0,
+};
+
+/* fly_script_base: animation streams */
+enum {
+    ENEMY_ANIM_FLY = 0,
+    ENEMY_ANIM_HOVER_START = 1,
+    ENEMY_ANIM_HOVER_SETTLE = 2,
+    ENEMY_ANIM_HOVER_CYCLE = 3,
+    ENEMY_ANIM_HOVER_CYCLE_END = 4,
+    ENEMY_ANIM_TURN_RIGHT_START = 5,
+    ENEMY_ANIM_TURN_RIGHT_LOOP = 6,
+    ENEMY_ANIM_TURN_LEFT_START = 7,
+    ENEMY_ANIM_TURN_LEFT_LOOP = 8,
+    ENEMY_ANIM_HOLD_C_START = 9,
+    ENEMY_ANIM_HOLD_C_LOOP = 10,
+    ENEMY_ANIM_HOLD_D_START = 11,
+    ENEMY_ANIM_HOLD_D_LOOP = 12,
+    ENEMY_ANIM_FLY_RESUME = 13,
+    ENEMY_ANIM_SIGNAL_DONE = 14,
+    ENEMY_ANIM_REVERSE_STOP = 15,
+};
+
+/* enemy_op_table: behaviour streams */
+enum {
+    ENEMY_IDLE = 0,
+    ENEMY_SPOTTED = 1,
+    ENEMY_SPOTTED_REPEAT = 2,
+    ENEMY_BLINK_START = 3,
+    ENEMY_BLINK_COOLDOWN = 4,
+    ENEMY_BLINK_COOLING = 5,
+    ENEMY_RETURN_IDLE = 6,
+    ENEMY_STRAFE_PICK = 7,
+    ENEMY_TURN_PICK = 8,
+    ENEMY_CHASE_PICK = 9,
+    ENEMY_STRAFE_B_START = 10,
+    ENEMY_STRAFE_B_RUN = 11,
+    ENEMY_STRAFE_A_START = 12,
+    ENEMY_STRAFE_A_RUN = 13,
+    ENEMY_TURN_POS_START = 14,
+    ENEMY_TURN_POS_RUN = 15,
+    ENEMY_TURN_NEG_START = 16,
+    ENEMY_TURN_NEG_RUN = 17,
+    ENEMY_STRAFE_B_TURN_POS_START = 18,
+    ENEMY_STRAFE_B_TURN_POS_RUN = 19,
+    ENEMY_STRAFE_A_TURN_NEG_START = 20,
+    ENEMY_STRAFE_A_TURN_NEG_RUN = 21,
+};
+
+/* D_8010FCCC: states */
+enum {
+    ENEMY_STATE_IDLE = 0,
+    ENEMY_STATE_WANDER = 1,
+    ENEMY_STATE_BLINK_TIMER = 2,
+    ENEMY_STATE_BLINK = 3,
+    ENEMY_STATE_STRAFE_A_TURN_POS = 5,
+    ENEMY_STATE_STRAFE_B_TURN_NEG = 6,
+    ENEMY_STATE_ANIM_WAIT = 7,
+    ENEMY_STATE_SPIN = 8,
+    ENEMY_STATE_REVERSE = 9,
+    ENEMY_STATE_STRAFE_A = 11,
+    ENEMY_STATE_STRAFE_B = 12,
+    ENEMY_STATE_TURN_NEG = 13,
+    ENEMY_STATE_TURN_POS = 14,
+    ENEMY_STATE_STRAFE_A_TURN_NEG = 15,
+    ENEMY_STATE_STRAFE_B_TURN_POS = 16,
+};
+
+#endif

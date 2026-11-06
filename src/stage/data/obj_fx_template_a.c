@@ -1,0 +1,3 @@
+/* Data shared by s04, s05, s10: scripts/stage_data.py. */
+
+RecTemplate obj_fx_template_a = {3, 0xFF, 0xFF, 0xFF, 0, 0x3C, 0x2AAAA, 0x20000, -0x100, 0x15555};

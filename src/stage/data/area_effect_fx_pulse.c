@@ -1,0 +1,3 @@
+/* Data shared by s10, s11: scripts/stage_data.py. */
+
+RecTemplate area_effect_fx_pulse = {1, 0xFF, 0xC0, 0xC0, 0, 0x2A, 0xC000, 0x16000, -0x1000, 0x4000};
