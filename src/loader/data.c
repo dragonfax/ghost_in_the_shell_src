@@ -5265,6 +5265,3 @@ s32 loader_free_slot_count = 0;
 
 u32 D_801070F4[451] = {0};
 
-/* labels inside the objects above */
-__asm__(".globl D_800FFF7C\n.set D_800FFF7C, CF_DVLC+0xF000\n"
-        ".globl D_8010077C\n.set D_8010077C, CF_DVLC+0xF800\n");

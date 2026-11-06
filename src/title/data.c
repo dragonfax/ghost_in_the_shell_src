@@ -5796,20 +5796,3 @@ s32 sprite_set_next_slot = 0;
 
 u32 title_rec_pool[21] = {0};
 
-/* labels inside the objects above */
-__asm__(".globl D_800BE15A\n.set D_800BE15A, title_seg_uv_table+0x2\n"
-        ".globl D_801085E6\n.set D_801085E6, rcossin_tbl+0x2\n"
-        ".globl title_quad_y0\n.set title_quad_y0, title_quad_x0+0x2\n"
-        ".globl title_uv_v0\n.set title_uv_v0, title_uv_u0+0x2\n"
-        ".globl title_uv_v1\n.set title_uv_v1, title_uv_u1+0x2\n"
-        ".globl title_quad_y1\n.set title_quad_y1, title_quad_x1+0x2\n"
-        ".globl title_cursor_scale\n.set title_cursor_scale, title_cursor_tr+0x8\n"
-        ".globl D_800D0000\n.set D_800D0000, title_image_b+0x32D4\n"
-        ".globl D_800E0000\n.set D_800E0000, pad3d_sprite_src+0x21F4\n"
-        ".globl D_800EFD34\n.set D_800EFD34, card_icon_frame0+0x4\n"
-        ".globl D_800EFDB8\n.set D_800EFDB8, card_icon_frame1+0x4\n"
-        ".globl D_800EFE3C\n.set D_800EFE3C, card_icon_frame2+0x4\n"
-        ".globl D_8010D6F0\n.set D_8010D6F0, task_list_head+0x4\n"
-        ".globl task_list_sentinel\n.set task_list_sentinel, task_list_head+0x1C\n"
-        ".globl D_8010D714\n.set D_8010D714, task_list_head+0x28\n"
-        ".globl task_list_insert_slot\n.set task_list_insert_slot, task_list_head+0x2C\n");

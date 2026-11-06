@@ -484,16 +484,12 @@ void stage_tables_reset(void) {
 
 #if STAGE != 1 && STAGE != 6 && STAGE != 8 && STAGE != 10 && STAGE != 12
 RectU mask_buf_rect = {0x300, 0x0, 0x100, 0xD8};
-__asm__(".globl d_800B5FF6\n.set d_800B5FF6, mask_buf_rect+0x2\n");
 #endif
 
 #if STAGE == 8
 u16 msg_areas_remaining[4] = {
     0x0300, 0x0000, 0x0100, 0x00D8,
 };
-/* S01's name for this word (the texture page x prim_fade_curtain reads in every stage); s08's symbols name it
- * msg_areas_remaining. */
-__asm__(".globl mask_buf_rect\n.set mask_buf_rect, msg_areas_remaining");
 #endif
 
 /* Prints the debug counters: map, unit and object; max apex, polygon and unit; polygon and square. */

@@ -19,7 +19,3 @@ s32 screen_buf_ptr = 0;
 
 s32 screen_wipe_row_table[272] = {0};
 
-/* labels inside the objects above */
-__asm__(".globl sound_last_request\n.set sound_last_request, sound_request+0x4\n"
-        ".globl sound_tone_volume\n.set sound_tone_volume, sound_request+0xC\n"
-        ".globl D_801E1BC4\n.set D_801E1BC4, screen_wipe_row_table+0x4\n");

@@ -358,30 +358,3 @@ u32 D_800EE508 = 0x00000000;
 
 u32 D_800EE50C[189] = {0};
 
-/* labels inside the objects above */
-__asm__(".globl startup_grey_v0_b\n.set startup_grey_v0_b, startup_screen+0x15A\n"
-        ".globl startup_grey_v1_b\n.set startup_grey_v1_b, startup_screen+0x162\n"
-        ".globl startup_grey_v2_b\n.set startup_grey_v2_b, startup_screen+0x16A\n"
-        ".globl startup_grey_v3_b\n.set startup_grey_v3_b, startup_screen+0x172\n"
-        ".globl D_800EE35F\n.set D_800EE35F, startup_screen+0x1A7\n"
-        ".globl D_800EE3AA\n.set D_800EE3AA, startup_screen+0x1F2\n"
-        ".globl startup_grey_v0_g\n.set startup_grey_v0_g, startup_screen+0x159\n"
-        ".globl startup_grey_v1_g\n.set startup_grey_v1_g, startup_screen+0x161\n"
-        ".globl startup_grey_v2_g\n.set startup_grey_v2_g, startup_screen+0x169\n"
-        ".globl startup_grey_v3_g\n.set startup_grey_v3_g, startup_screen+0x171\n"
-        ".globl startup_draw_g0\n.set startup_draw_g0, startup_screen+0x1A6\n"
-        ".globl startup_draw_r0\n.set startup_draw_r0, startup_screen+0x1A5\n"
-        ".globl D_800EE1BC\n.set D_800EE1BC, startup_screen+0x4\n"
-        ".globl startup_grey_v0_r\n.set startup_grey_v0_r, startup_screen+0x158\n"
-        ".globl startup_grey_v1_r\n.set startup_grey_v1_r, startup_screen+0x160\n"
-        ".globl startup_grey_v2_r\n.set startup_grey_v2_r, startup_screen+0x168\n"
-        ".globl startup_grey_v3_r\n.set startup_grey_v3_r, startup_screen+0x170\n"
-        ".globl D_800EE344\n.set D_800EE344, startup_screen+0x18C\n"
-        ".globl startup_draw_tpage\n.set startup_draw_tpage, startup_screen+0x1A0\n"
-        ".globl startup_draw_dtd\n.set startup_draw_dtd, startup_screen+0x1A2\n"
-        ".globl startup_draw_dfe\n.set startup_draw_dfe, startup_screen+0x1A3\n"
-        ".globl startup_draw_isbg\n.set startup_draw_isbg, startup_screen+0x1A4\n"
-        ".globl D_800EE3B0\n.set D_800EE3B0, startup_screen+0x1F8\n"
-        ".globl D_800EE3B1\n.set D_800EE3B1, startup_screen+0x1F9\n"
-        ".globl D_800EE3B2\n.set D_800EE3B2, startup_screen+0x1FA\n"
-        ".globl D_800EE3B4\n.set D_800EE3B4, startup_screen+0x1FC\n");

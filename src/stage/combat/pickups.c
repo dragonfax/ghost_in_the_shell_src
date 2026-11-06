@@ -47,8 +47,6 @@ s16 d_800B6604[4] = {
 u16 msg_energy_pack_acquired[4] = {
     0x0024, 0x003C, 0x0030, 0x0000,
 };
-/* S01's name for the s16 table pickup_draw reads in every stage; s08's symbols name it msg_energy_pack_acquired. */
-__asm__(".globl d_800B6604\n.set d_800B6604, msg_energy_pack_acquired");
 #endif
 
 /* pickup_phase2's scratchpad block: the player's position (player_position_copy), then the item's position. */

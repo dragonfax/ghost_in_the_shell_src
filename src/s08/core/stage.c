@@ -137,7 +137,6 @@ void rolling_door_phase0(Object *obj, ObjHandler *handler) {
         }
     }
 
-
     if (ABS(dz) < radius && -behind < dx && dx < ahead && r->active != 0) {
         if (r->unk4 == 0) {
             r->unk4 = 1;
@@ -440,7 +439,6 @@ s32 grid_controller_spawn(void) {
 }
 
 RectU night_vision_rect = {0x300, 0x0, 0x100, 0xD8}; /* the night vision copy rect */
-__asm__(".globl night_vision_rect_y\n.set night_vision_rect_y, night_vision_rect+0x2\n");
 char str_dor8_ch0cb4[16] = "dor8_ch0.cb4";
 
 extern s16 mission_door_ids[];
@@ -587,13 +585,11 @@ void cam_path_advance(void) {
 void func_800BEC40(void) {
 }
 
-
 /* Sets up the object's position (x, y, z) from i. Returns 0. */
 s32 sound_follow_obj(Object *obj, s32 i) {
     sound_set_pos(i, (Vec3 *)&obj->x);
     return 0;
 }
-
 
 extern s32 boss_defeated_flag;
 
@@ -1183,7 +1179,6 @@ void script_jump_if_fixed_point_dist(Object *obj) {
     }
 }
 
-
 /* Reads two halfwords from the object's script; if obj_player_in_view accepts the first, the
    script continues at the entry (the second halfword) of the object's table. */
 void script_op_jump_if_in_range(Object *obj) {
@@ -1199,7 +1194,6 @@ void script_op_jump_if_in_range(Object *obj) {
         obj->script.pc = ((s16 **)obj->script.data)[index];
     }
 }
-
 
 void script_branch_threshold(Object *obj) {
     s16 *cursor;

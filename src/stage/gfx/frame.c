@@ -244,7 +244,6 @@ void cam_frame_draw(void) {
 
 #if STAGE == 2
 RectU night_vision_rect = {0x300, 0x0, 0x100, 0xD8}; /* the night vision copy rect */
-__asm__(".globl night_vision_rect_y\n.set night_vision_rect_y, night_vision_rect+0x2\n");
 #endif
 
 /* Rodata the original keeps before cam_fade_draw: the CLUT/UV pair its cell primitives take. */

@@ -1612,22 +1612,3 @@ u8 xa_flags_hi[8] = {
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 };
 
-/* labels inside the objects above */
-__asm__(".globl CD_com\n.set CD_com, CD_mode+0x1\n"
-        ".globl D_80032382\n.set D_80032382, frame_task_table+0x6\n"
-        ".globl D_80032402\n.set D_80032402, frame_task_table_small+0x6\n"
-        ".globl cd_pos_frame\n.set cd_pos_frame, cd_sync_result+0x7\n"
-        ".globl pad_type_byte\n.set pad_type_byte, pad_buffers+0x1\n"
-        ".globl event_flags\n.set event_flags, D_8003E388+0x1\n"
-        ".globl xa_flags_lo\n.set xa_flags_lo, xa_flags_hi+0x1\n"
-        ".globl cd_pos_second\n.set cd_pos_second, cd_sync_result+0x6\n"
-        ".globl cd_pos_minute\n.set cd_pos_minute, cd_sync_result+0x5\n"
-        ".globl D_80032380\n.set D_80032380, frame_task_table+0x4\n"
-        ".globl D_80032400\n.set D_80032400, frame_task_table_small+0x4\n"
-        ".globl D_80032888\n.set D_80032888, vab_slots+0x14\n"
-        ".globl D_80038324\n.set D_80038324, sound_slots+0xC\n"
-        ".globl D_80039E2C\n.set D_80039E2C, cdfs_path_records+0x4\n"
-        ".globl D_8003AAB8\n.set D_8003AAB8, sector_cache+0x4\n"
-        ".globl thread_info_table\n.set thread_info_table, sched_thread_slots+0x4\n"
-        ".globl thread_info_handle\n.set thread_info_handle, sched_thread_slots+0x8\n"
-        ".globl D_8003E3B8\n.set D_8003E3B8, sched_thread_slots+0x28\n");

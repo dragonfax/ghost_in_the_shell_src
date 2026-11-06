@@ -220,7 +220,6 @@ void interp_sample_records(void) {
 
 #if STAGE == 1 || STAGE == 6 || STAGE == 10 || STAGE == 12
 RectU mask_buf_rect = {0x300, 0x0, 0x100, 0xD8};
-__asm__(".globl d_800B5FF6\n.set d_800B5FF6, mask_buf_rect+0x2\n");
 #endif
 
 /* Dispatches on bits 12-15 of `code` to one of five helpers and stores the result in *out:
